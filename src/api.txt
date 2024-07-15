@@ -1,0 +1,5261 @@
+https://hoppscotch.io/
+Only api endpoint, requests and responses are to be written here.One more thing.. Get requests does not have request body.Authenticated routes will include a Header like:  Authorization: Bearer auth_token.If a route needs authentication, write Auth needed below the route before writing request
+
+https://meetnmarry.com/api/signup
+request:
+{
+  "first_name":"John",
+  "last_name":"Doe",
+  "email":"johndoe@gmail.com",
+  "gender":1,
+  "on_behalf":1,
+  "date_of_birth": "2024-07-04",
+  "password":"12345678",
+  "password_confirmation":"12345678"
+}
+Additional info:
+gender=0 means female
+gender=1 means male
+Password must be at least 8 digit long
+
+response:
+{
+  "result": true,
+  "message": [
+	"Registration Successful. Please verify and log in to your account."
+  ],
+  "user_id": 96
+}
+https://meetnmarry.com/api/signin
+request:
+{
+  "email_or_phone":"jab3r0.0@gmail.com",
+  "password":"1234567890"
+}
+response:
+{
+  "result": true,
+  "message": "Successfully logged in",
+  "access_token": "5|L7mgZplMCnHOrZOFn9R9RkGeG50QcgDE1i3EkE7l",
+  "token_type": "Bearer",
+  "expires_at": null,
+  "user": {
+	"id": 7,
+	"type": "member",
+	"name": "Lamia Khan",
+	"email": "lamiakhan@gmail.com",
+	"birthday": "2000-06-01 00:00:00",
+	"height": 6,
+	"marital_status_id": {
+  	"id": 1,
+  	"name": "Single"
+	},
+	"avatar": null,
+	"avatar_original": null,
+	"phone": "01234567890"
+  }
+}
+
+
+
+https://meetnmarry.com/api/forgot/password
+
+request:
+{
+    "email_or_phone": "jarircse16@gmail.com",
+    "send_code_by": "email"
+}
+
+response:
+{
+  "result": true,
+  "message": "A code is sent"
+}
+
+
+https://meetnmarry.com/api/reset/password
+
+request:
+{
+    "email_or_phone": "jarircse16@gmail.com",
+    "send_code_by": "email",
+    "verification_code": "1234",
+    "password": "newpassword123",
+    "password_confirmation": "newpassword123"
+}
+
+
+response:
+{
+  "result": false,
+  "message": "Verification code does not match!!"
+}
+
+
+Headers: Authorization Bearer 10|Wy4wjKFLUpDMushL2MZf4jK1nrZvpwXp2x6eq5ap      , For All next routes
+
+
+https://meetnmarry.com/api/member/basic-info
+
+
+
+Response:
+
+{
+  "data": {
+    "firs_name": "Lamia",
+    "last_name": "Khan",
+    "date_of_birth": "2000-06-01 00:00:00",
+    "onbehalf": {
+      "id": 2,
+      "name": "Son"
+    },
+    "no_of_children": null,
+    "gender": "2",
+    "phone": "01234567890",
+    "maritial_status": "Single",
+    "photo": "/public/uploads/all/V1B8b09X8vDAGdIis5GYp8pdE9GHEFw3wwRSw0cl.jpg"
+  },
+  "result": true
+}
+https://meetnmarry.com/api/home
+
+{
+  "result": true,
+  "data": {
+    "slider_images": [
+      {
+        "image": "/public/uploads/all/XuDCD6I0hD7r7tDdGqNoJIQo4wHBwKiBuHkDf1Rw.webp"
+      }
+    ],
+    "new_members": [
+      {
+        "user_id": 94,
+        "code": "20240794",
+        "membership": 1,
+        "name": "Jaber Ahmed",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 0,
+        "country": "Afghanistan",
+        "height": "6.00",
+        "package_update_alert": false,
+        "interest_status": "no interest",
+        "shortlist_status": 0,
+        "report_status": false
+      },
+      {
+        "user_id": 93,
+        "code": "20240793",
+        "membership": 1,
+        "name": "Md Ch",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 29,
+        "country": "",
+        "height": "",
+        "package_update_alert": false,
+        "interest_status": "no interest",
+        "shortlist_status": 0,
+        "report_status": false
+      },
+      {
+        "user_id": 91,
+        "code": "20240691",
+        "membership": 1,
+        "name": "akas adsasd",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 28,
+        "country": "",
+        "height": "",
+        "package_update_alert": false,
+        "interest_status": "no interest",
+        "shortlist_status": 0,
+        "report_status": false
+      },
+      {
+        "user_id": 33,
+        "code": "20240633",
+        "membership": 1,
+        "name": "Samia Alam",
+        "photo": "https://meetnmarry.com/assets/img/female-avatar-place.png",
+        "age": 49,
+        "country": "",
+        "height": "",
+        "package_update_alert": false,
+        "interest_status": "no interest",
+        "shortlist_status": 0,
+        "report_status": false
+      },
+      {
+        "user_id": 32,
+        "code": "20240632",
+        "membership": 1,
+        "name": "Abdur Rouf",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 29,
+        "country": "",
+        "height": "",
+        "package_update_alert": false,
+        "interest_status": "no interest",
+        "shortlist_status": 0,
+        "report_status": false
+      },
+      {
+        "user_id": 34,
+        "code": "20240634",
+        "membership": 1,
+        "name": "mine ytyhh",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 48,
+        "country": "",
+        "height": "",
+        "package_update_alert": false,
+        "interest_status": "no interest",
+        "shortlist_status": 0,
+        "report_status": false
+      },
+      {
+        "user_id": 98,
+        "code": "20240798",
+        "membership": 1,
+        "name": "abdul azim",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 48,
+        "country": "",
+        "height": "",
+        "package_update_alert": false,
+        "interest_status": "no interest",
+        "shortlist_status": 0,
+        "report_status": false
+      },
+      {
+        "user_id": 31,
+        "code": "20240631",
+        "membership": 2,
+        "name": "Fjfjf Hdhd",
+        "photo": "https://meetnmarry.com/assets/img/female-avatar-place.png",
+        "age": 28,
+        "country": "",
+        "height": "",
+        "package_update_alert": false,
+        "interest_status": "no interest",
+        "shortlist_status": 0,
+        "report_status": false
+      },
+      {
+        "user_id": 87,
+        "code": "20240687",
+        "membership": 1,
+        "name": "mr clerk",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 58,
+        "country": "",
+        "height": "",
+        "package_update_alert": false,
+        "interest_status": "no interest",
+        "shortlist_status": 0,
+        "report_status": false
+      },
+      {
+        "user_id": 86,
+        "code": "20240686",
+        "membership": 1,
+        "name": "mr clerk",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 58,
+        "country": "",
+        "height": "",
+        "package_update_alert": false,
+        "interest_status": "no interest",
+        "shortlist_status": 0,
+        "report_status": false
+      }
+    ],
+    "premium_members": [
+      {
+        "user_id": 31,
+        "code": "20240631",
+        "membership": 2,
+        "name": "Fjfjf Hdhd",
+        "photo": "https://meetnmarry.com/assets/img/female-avatar-place.png",
+        "age": 28,
+        "country": "",
+        "height": "",
+        "package_update_alert": false,
+        "interest_status": "no interest",
+        "shortlist_status": 0,
+        "report_status": false
+      },
+      {
+        "user_id": 28,
+        "code": "20240628",
+        "membership": 2,
+        "name": "Niha Weru",
+        "photo": "https://meetnmarry.com/assets/img/female-avatar-place.png",
+        "age": 24,
+        "country": "Bangladesh",
+        "height": "",
+        "package_update_alert": false,
+        "interest_status": "no interest",
+        "shortlist_status": 0,
+        "report_status": false
+      },
+      {
+        "user_id": 25,
+        "code": "20240525",
+        "membership": 2,
+        "name": "sunny gpc",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 57,
+        "country": "Bangladesh",
+        "height": "",
+        "package_update_alert": false,
+        "interest_status": "no interest",
+        "shortlist_status": 0,
+        "report_status": false
+      },
+      {
+        "user_id": 7,
+        "code": "2024047",
+        "membership": 2,
+        "name": "Lamia Khan",
+        "photo": "https://meetnmarry.com/assets/img/female-avatar-place.png",
+        "age": 24,
+        "country": "Afghanistan",
+        "height": "5'.6''",
+        "package_update_alert": false,
+        "interest_status": "no interest",
+        "shortlist_status": 0,
+        "report_status": false
+      },
+      {
+        "user_id": 6,
+        "code": "2024046",
+        "membership": 2,
+        "name": "Jaber Ahmed",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 0,
+        "country": "Bangladesh",
+        "height": "6.00",
+        "package_update_alert": false,
+        "interest_status": "no interest",
+        "shortlist_status": 0,
+        "report_status": false
+      }
+    ],
+    "banner": [
+      {
+        "link": "https://meetnmarry.com/",
+        "photo": "/public/uploads/all/fR9eDKJYgKcMOighYhxoIZIHBCH8eK1QElv00ipf.png"
+      },
+      {
+        "link": "https://meetnmarry.com/",
+        "photo": "/public/uploads/all/MUXVUsD8logxXRk1jq3wDkbB4YZFJ5LaZmolWtHN.png"
+      },
+      {
+        "link": "https://meetnmarry.com/",
+        "photo": "/public/uploads/all/lfhFfROa6D80ppbRoewuAvzFGgXezfQacqPkUY0x.png"
+      }
+    ],
+    "how_it_works": {
+      "how_it_works_title": "How It Works",
+      "how_it_works_sub_title": "When you realize you want to spend the rest of your life with somebody, you want the rest of your life to start as soon as possible.",
+      "items": [
+        {
+          "step": 1,
+          "title": "Sign up",
+          "subtitle": "Register for free & put up your Profile",
+          "icon": "/public/uploads/all/Dz7iRoKk4NVftWS2NUBCJYb9hyGShKfciMfhW34m.png"
+        },
+        {
+          "step": 2,
+          "title": "Connect",
+          "subtitle": "Select & Connect with Matches you like",
+          "icon": "/public/uploads/all/q7oLZIUsbv2sCeGydBzDZB400XkPnvCmd7dxN8jX.png"
+        },
+        {
+          "step": 3,
+          "title": "Interact",
+          "subtitle": "Become a Premium Member & Start a Conversation",
+          "icon": "/public/uploads/all/eX4kuKyomyBHsBhGTYvJCRZprXA7osr37SWf9WgY.png"
+        }
+      ]
+    },
+    "trusted_by_millions": [
+      {
+        "title": "Best Matches",
+        "icon": "/public/uploads/all/m9mpkXk4dRHbI2jeg17ANOVNYvgZpNaIooTU9q0h.png"
+      },
+      {
+        "title": "Verified Profiles",
+        "icon": "/public/uploads/all/boI6HxbU3FzRAcBWyXkfOKIfRHHjIRlhEmR5gqhK.png"
+      },
+      {
+        "title": "100% Privacy",
+        "icon": "/public/uploads/all/2Po5M6E64qMwkTXcchIC1f3ppisaD1aGh8zKvBm5.png"
+      }
+    ],
+    "happy_stories": [
+      {
+        "id": 2,
+        "user_id": 6,
+        "package_update_alert": false,
+        "user_first_name": "Jaber",
+        "user_last_name": "Ahmed",
+        "partner_name": "Nxndnd",
+        "title": "Hapi hapi hapi",
+        "details": "Dhhdhdhdbx",
+        "date": "03 June, 2024",
+        "thumb_img": "/public/uploads/all/RrCf0zOCDBj8WPRTOrvkn33IqbCLdLBTNwAGu1RK.png",
+        "photos": [
+          "/public/uploads/all/RrCf0zOCDBj8WPRTOrvkn33IqbCLdLBTNwAGu1RK.png"
+        ],
+        "video_provider": "youtube",
+        "video_link": null
+      },
+      {
+        "id": 1,
+        "user_id": 25,
+        "package_update_alert": false,
+        "user_first_name": "sunny",
+        "user_last_name": "gpc",
+        "partner_name": "lamia",
+        "title": "Happy journey",
+        "details": "grioghiogsdahiogshdgsdhigsdhhgds  gdsiugdugghhgdsghdsh  ugdgudsgudsgugdhhgdshgds  ",
+        "date": "09 May, 2024",
+        "thumb_img": "/public/uploads/all/RrCf0zOCDBj8WPRTOrvkn33IqbCLdLBTNwAGu1RK.png",
+        "photos": [
+          "/public/uploads/all/RrCf0zOCDBj8WPRTOrvkn33IqbCLdLBTNwAGu1RK.png"
+        ],
+        "video_provider": "youtube",
+        "video_link": null
+      }
+    ],
+    "packages": [
+      {
+        "package_id": 1,
+        "name": "Free",
+        "image": "/public/uploads/all/fR9eDKJYgKcMOighYhxoIZIHBCH8eK1QElv00ipf.png",
+        "express_interest": 500,
+        "photo_gallery": 100,
+        "contact": 500,
+        "profile_image_view": 0,
+        "gallery_image_view": 0,
+        "auto_profile_match": 0,
+        "price": 0,
+        "validity": 10
+      },
+      {
+        "package_id": 9,
+        "name": "Gold",
+        "image": "/public/uploads/all/6U0M0KfzN2pH2MvEYJ1sRtoJttMLvxWQhiBwbeZA.jpg",
+        "express_interest": 75,
+        "photo_gallery": 75,
+        "contact": 75,
+        "profile_image_view": 0,
+        "gallery_image_view": 0,
+        "auto_profile_match": 1,
+        "price": 70,
+        "validity": 90
+      },
+      {
+        "package_id": 10,
+        "name": "Gold Plus",
+        "image": "/public/uploads/all/6H4OQJDt5cb8cLqO94MVYgsaJrrauLHAggxsJyfn.png",
+        "express_interest": 150,
+        "photo_gallery": 150,
+        "contact": 150,
+        "profile_image_view": 0,
+        "gallery_image_view": 0,
+        "auto_profile_match": 1,
+        "price": 84,
+        "validity": 90
+      },
+      {
+        "package_id": 11,
+        "name": "Diamond",
+        "image": "/public/uploads/all/lfhFfROa6D80ppbRoewuAvzFGgXezfQacqPkUY0x.png",
+        "express_interest": 150,
+        "photo_gallery": 150,
+        "contact": 150,
+        "profile_image_view": 0,
+        "gallery_image_view": 0,
+        "auto_profile_match": 1,
+        "price": 96,
+        "validity": 180
+      },
+      {
+        "package_id": 12,
+        "name": "Diamond Plus",
+        "image": "/public/uploads/all/SKcOcvi3a3um1568ZOs13sykK82VVLJuydNtEARk.jpg",
+        "express_interest": 300,
+        "photo_gallery": 300,
+        "contact": 300,
+        "profile_image_view": 0,
+        "gallery_image_view": 0,
+        "auto_profile_match": 1,
+        "price": 105,
+        "validity": 180
+      },
+      {
+        "package_id": 13,
+        "name": "Platinum Plus",
+        "image": "/public/uploads/all/MUXVUsD8logxXRk1jq3wDkbB4YZFJ5LaZmolWtHN.png",
+        "express_interest": 600,
+        "photo_gallery": 600,
+        "contact": 600,
+        "profile_image_view": 0,
+        "gallery_image_view": 0,
+        "auto_profile_match": 1,
+        "price": 125,
+        "validity": 360
+      }
+    ],
+    "reviews": {
+      "bg_image": "/public/uploads/all/FiADRk4LeCkwdG6RgpJvtGB5vS5p5OreWwaUpsyu.png",
+      "items": [
+        {
+          "image": "/public/uploads/all/6U0M0KfzN2pH2MvEYJ1sRtoJttMLvxWQhiBwbeZA.jpg",
+          "review": "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure."
+        }
+      ]
+    },
+    "blogs": [
+      {
+        "id": 1,
+        "title": "About Derek Rake",
+        "slug": "about-derek-rake",
+        "banner": "/public/uploads/all/lfhFfROa6D80ppbRoewuAvzFGgXezfQacqPkUY0x.png",
+        "category_name": "Dating Tips",
+        "short_description": "About Derek Rake\r\nHello, and welcome to my blog.",
+        "description": "Derek Rake. I have been a member of the seduction community since December 2003. I also write books on dating and seduction – you might have heard of “How To Seduce Out Of Your League” book which I published in 2006. A quick Google search on my name will show some of the articles that I have written which got published online.Here’s how things got started…Ever since I found the community, my dating life has improved by leaps and bounds. I have dated no less than 200 women in six years, and coached more than 100 men achieve considerable success with women. While I got better with women, I found that the aspects of my life have improved also – this is what known as the ‘spillover effect’ in the community.Listen:I am telling you that not to boast, but to show that if *I* could do it, anyone can (believe me, I was at the worst ever condition six years ago a man could ever be in – grossly overweight, with ZERO experience with women and close-to-zero social skills), and to become better with women is a worthwhile goal for every man. And in the process, it’s not uncommon to see drastic improvement in other areas of your life too.But you know what else?I am thankful to both the community as well as a certain ‘Zen Master’ who has taken me under his wings to teach me absolutely mindblowing shit that I never knew about women. Click here for the full story.He was the inspiration behind this blog (hence the title Zen &amp; The Art Of Seduction)…I will tell you about his inspiring story in the blog postings.Why am I doing this?By writing this blog, I hope to give back by sharing my knowledge and experience with the community. Inside this blog, you will find tips and insights on the topic of dating and seduction – from my personal experience as well as from coaching my clients. These are tried-and-tested and validated-in-real-life stuff we are talking about here, folks.Some of the guides in this site can be pretty controversial – for example, my “how to seduce a married woman” guide has attracted lots of attention in the mass media. Let me clarify that we are NOT misogynist (after all, we are doing this for the love of women!), and we only want the best for our girlfriends and wives, not the worst. What’s more…The content on this blog is free. From time to time, I will also be recommending some external resources (some of which are NOT free) for the benefit of my readers.Now at the risk of sounding *really* narcissistic, a little bit more about myself…I  have traveled quite a bit my entire 44 years of life – to the US, UK, all over Europe, UAE, Tunisia, Thailand, Cambodia, Vietnam, Hong Kong.If you’d like to get in touch or just to say hi, here’s my personal email. As you could probably tell, I have absolutely no pretension to be a ‘dating guru’, and I try to reply every email I get, so give it a shot!Talk soon, and enjoy your stay here at DerekRake.com!Your friend,"
+      }
+    ]
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/packages
+
+{
+  "data": [
+    {
+      "package_id": 1,
+      "name": "Free",
+      "image": "/public/uploads/all/fR9eDKJYgKcMOighYhxoIZIHBCH8eK1QElv00ipf.png",
+      "express_interest": 500,
+      "photo_gallery": 100,
+      "contact": 500,
+      "profile_image_view": 0,
+      "gallery_image_view": 0,
+      "auto_profile_match": 0,
+      "price": 0,
+      "validity": 10
+    },
+    {
+      "package_id": 9,
+      "name": "Gold",
+      "image": "/public/uploads/all/6U0M0KfzN2pH2MvEYJ1sRtoJttMLvxWQhiBwbeZA.jpg",
+      "express_interest": 75,
+      "photo_gallery": 75,
+      "contact": 75,
+      "profile_image_view": 0,
+      "gallery_image_view": 0,
+      "auto_profile_match": 1,
+      "price": 70,
+      "validity": 90
+    },
+    {
+      "package_id": 10,
+      "name": "Gold Plus",
+      "image": "/public/uploads/all/6H4OQJDt5cb8cLqO94MVYgsaJrrauLHAggxsJyfn.png",
+      "express_interest": 150,
+      "photo_gallery": 150,
+      "contact": 150,
+      "profile_image_view": 0,
+      "gallery_image_view": 0,
+      "auto_profile_match": 1,
+      "price": 84,
+      "validity": 90
+    },
+    {
+      "package_id": 11,
+      "name": "Diamond",
+      "image": "/public/uploads/all/lfhFfROa6D80ppbRoewuAvzFGgXezfQacqPkUY0x.png",
+      "express_interest": 150,
+      "photo_gallery": 150,
+      "contact": 150,
+      "profile_image_view": 0,
+      "gallery_image_view": 0,
+      "auto_profile_match": 1,
+      "price": 96,
+      "validity": 180
+    },
+    {
+      "package_id": 12,
+      "name": "Diamond Plus",
+      "image": "/public/uploads/all/SKcOcvi3a3um1568ZOs13sykK82VVLJuydNtEARk.jpg",
+      "express_interest": 300,
+      "photo_gallery": 300,
+      "contact": 300,
+      "profile_image_view": 0,
+      "gallery_image_view": 0,
+      "auto_profile_match": 1,
+      "price": 105,
+      "validity": 180
+    },
+    {
+      "package_id": 13,
+      "name": "Platinum Plus",
+      "image": "/public/uploads/all/MUXVUsD8logxXRk1jq3wDkbB4YZFJ5LaZmolWtHN.png",
+      "express_interest": 600,
+      "photo_gallery": 600,
+      "contact": 600,
+      "profile_image_view": 0,
+      "gallery_image_view": 0,
+      "auto_profile_match": 1,
+      "price": 125,
+      "validity": 360
+    }
+  ],
+  "result": true
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/package-details
+
+request:
+{
+  "package_id": 13
+}
+
+response:
+{
+  "data": {
+    "package_id": 13,
+    "name": "Platinum Plus",
+    "image": "/public/uploads/all/MUXVUsD8logxXRk1jq3wDkbB4YZFJ5LaZmolWtHN.png",
+    "express_interest": 600,
+    "photo_gallery": 600,
+    "contact": 600,
+    "profile_image_view": 0,
+    "gallery_image_view": 0,
+    "auto_profile_match": 1,
+    "price": 125,
+    "validity": 360
+  },
+  "result": true
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/happy-stories
+
+response:
+{
+  "data": [
+    {
+      "id": 2,
+      "user_id": 6,
+      "package_update_alert": false,
+      "user_first_name": "Jaber",
+      "user_last_name": "Ahmed",
+      "partner_name": "Nxndnd",
+      "title": "Hapi hapi hapi",
+      "details": "Dhhdhdhdbx",
+      "date": "03 June, 2024",
+      "thumb_img": "/public/uploads/all/RrCf0zOCDBj8WPRTOrvkn33IqbCLdLBTNwAGu1RK.png",
+      "photos": [
+        "/public/uploads/all/RrCf0zOCDBj8WPRTOrvkn33IqbCLdLBTNwAGu1RK.png"
+      ],
+      "video_provider": "youtube",
+      "video_link": null
+    },
+    {
+      "id": 1,
+      "user_id": 25,
+      "package_update_alert": false,
+      "user_first_name": "sunny",
+      "user_last_name": "gpc",
+      "partner_name": "lamia",
+      "title": "Happy journey",
+      "details": "grioghiogsdahiogshdgsdhigsdhhgds  gdsiugdugghhgdsghdsh  ugdgudsgudsgugdhhgdshgds  ",
+      "date": "09 May, 2024",
+      "thumb_img": "/public/uploads/all/RrCf0zOCDBj8WPRTOrvkn33IqbCLdLBTNwAGu1RK.png",
+      "photos": [
+        "/public/uploads/all/RrCf0zOCDBj8WPRTOrvkn33IqbCLdLBTNwAGu1RK.png"
+      ],
+      "video_provider": "youtube",
+      "video_link": null
+    }
+  ],
+  "links": {
+    "first": "https://meetnmarry.com/api/happy-stories?page=1",
+    "last": "https://meetnmarry.com/api/happy-stories?page=1",
+    "prev": null,
+    "next": null
+  },
+  "meta": {
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "https://meetnmarry.com/api/happy-stories?page=1",
+        "label": "1",
+        "active": true
+      },
+      {
+        "url": null,
+        "label": "Next &raquo;",
+        "active": false
+      }
+    ],
+    "path": "https://meetnmarry.com/api/happy-stories",
+    "per_page": 12,
+    "to": 2,
+    "total": 2
+  },
+  "result": true
+}
+
+https://meetnmarry.com/api/story-details
+
+request:
+{
+    "story_id": 1
+}
+
+response:
+{
+  "data": {
+    "id": 1,
+    "user_id": 25,
+    "package_update_alert": false,
+    "user_first_name": "sunny",
+    "user_last_name": "gpc",
+    "partner_name": "lamia",
+    "title": "Happy journey",
+    "details": "grioghiogsdahiogshdgsdhigsdhhgds  gdsiugdugghhgdsghdsh  ugdgudsgudsgugdhhgdshgds  ",
+    "date": "09 May, 2024",
+    "thumb_img": "/public/uploads/all/RrCf0zOCDBj8WPRTOrvkn33IqbCLdLBTNwAGu1RK.png",
+    "photos": [
+      "/public/uploads/all/RrCf0zOCDBj8WPRTOrvkn33IqbCLdLBTNwAGu1RK.png"
+    ],
+    "video_provider": "youtube",
+    "video_link": null
+  },
+  "result": true
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/blogs
+
+response:
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "About Derek Rake",
+      "slug": "about-derek-rake",
+      "banner": "/public/uploads/all/lfhFfROa6D80ppbRoewuAvzFGgXezfQacqPkUY0x.png",
+      "category_name": "Dating Tips",
+      "short_description": "About Derek Rake\r\nHello, and welcome to my blog.",
+      "description": "Derek Rake. I have been a member of the seduction community since December 2003. I also write books on dating and seduction – you might have heard of “How To Seduce Out Of Your League” book which I published in 2006. A quick Google search on my name will show some of the articles that I have written which got published online.Here’s how things got started…Ever since I found the community, my dating life has improved by leaps and bounds. I have dated no less than 200 women in six years, and coached more than 100 men achieve considerable success with women. While I got better with women, I found that the aspects of my life have improved also – this is what known as the ‘spillover effect’ in the community.Listen:I am telling you that not to boast, but to show that if *I* could do it, anyone can (believe me, I was at the worst ever condition six years ago a man could ever be in – grossly overweight, with ZERO experience with women and close-to-zero social skills), and to become better with women is a worthwhile goal for every man. And in the process, it’s not uncommon to see drastic improvement in other areas of your life too.But you know what else?I am thankful to both the community as well as a certain ‘Zen Master’ who has taken me under his wings to teach me absolutely mindblowing shit that I never knew about women. Click here for the full story.He was the inspiration behind this blog (hence the title Zen &amp; The Art Of Seduction)…I will tell you about his inspiring story in the blog postings.Why am I doing this?By writing this blog, I hope to give back by sharing my knowledge and experience with the community. Inside this blog, you will find tips and insights on the topic of dating and seduction – from my personal experience as well as from coaching my clients. These are tried-and-tested and validated-in-real-life stuff we are talking about here, folks.Some of the guides in this site can be pretty controversial – for example, my “how to seduce a married woman” guide has attracted lots of attention in the mass media. Let me clarify that we are NOT misogynist (after all, we are doing this for the love of women!), and we only want the best for our girlfriends and wives, not the worst. What’s more…The content on this blog is free. From time to time, I will also be recommending some external resources (some of which are NOT free) for the benefit of my readers.Now at the risk of sounding *really* narcissistic, a little bit more about myself…I  have traveled quite a bit my entire 44 years of life – to the US, UK, all over Europe, UAE, Tunisia, Thailand, Cambodia, Vietnam, Hong Kong.If you’d like to get in touch or just to say hi, here’s my personal email. As you could probably tell, I have absolutely no pretension to be a ‘dating guru’, and I try to reply every email I get, so give it a shot!Talk soon, and enjoy your stay here at DerekRake.com!Your friend,"
+    }
+  ],
+  "result": true
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/blog-details
+
+request:
+{
+    "slug": "about-derek-rake"
+}
+
+response:
+{
+  "data": {
+    "id": 1,
+    "title": "About Derek Rake",
+    "slug": "about-derek-rake",
+    "banner": "/public/uploads/all/lfhFfROa6D80ppbRoewuAvzFGgXezfQacqPkUY0x.png",
+    "category_name": "Dating Tips",
+    "short_description": "About Derek Rake\r\nHello, and welcome to my blog.",
+    "description": "Derek Rake. I have been a member of the seduction community since December 2003. I also write books on dating and seduction – you might have heard of “How To Seduce Out Of Your League” book which I published in 2006. A quick Google search on my name will show some of the articles that I have written which got published online.Here’s how things got started…Ever since I found the community, my dating life has improved by leaps and bounds. I have dated no less than 200 women in six years, and coached more than 100 men achieve considerable success with women. While I got better with women, I found that the aspects of my life have improved also – this is what known as the ‘spillover effect’ in the community.Listen:I am telling you that not to boast, but to show that if *I* could do it, anyone can (believe me, I was at the worst ever condition six years ago a man could ever be in – grossly overweight, with ZERO experience with women and close-to-zero social skills), and to become better with women is a worthwhile goal for every man. And in the process, it’s not uncommon to see drastic improvement in other areas of your life too.But you know what else?I am thankful to both the community as well as a certain ‘Zen Master’ who has taken me under his wings to teach me absolutely mindblowing shit that I never knew about women. Click here for the full story.He was the inspiration behind this blog (hence the title Zen &amp; The Art Of Seduction)…I will tell you about his inspiring story in the blog postings.Why am I doing this?By writing this blog, I hope to give back by sharing my knowledge and experience with the community. Inside this blog, you will find tips and insights on the topic of dating and seduction – from my personal experience as well as from coaching my clients. These are tried-and-tested and validated-in-real-life stuff we are talking about here, folks.Some of the guides in this site can be pretty controversial – for example, my “how to seduce a married woman” guide has attracted lots of attention in the mass media. Let me clarify that we are NOT misogynist (after all, we are doing this for the love of women!), and we only want the best for our girlfriends and wives, not the worst. What’s more…The content on this blog is free. From time to time, I will also be recommending some external resources (some of which are NOT free) for the benefit of my readers.Now at the risk of sounding *really* narcissistic, a little bit more about myself…I  have traveled quite a bit my entire 44 years of life – to the US, UK, all over Europe, UAE, Tunisia, Thailand, Cambodia, Vietnam, Hong Kong.If you’d like to get in touch or just to say hi, here’s my personal email. As you could probably tell, I have absolutely no pretension to be a ‘dating guru’, and I try to reply every email I get, so give it a shot!Talk soon, and enjoy your stay here at DerekRake.com!Your friend,"
+  },
+  "result": true
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/contact-us
+
+request:
+{
+    "name": "John Doe",
+    "email": "jarircse16@gmail.com",
+    "subject": "Inquiry about services",
+    "description": "I would like to know more about your services."
+}
+
+response:
+{
+  "result": true,
+  "message": "Your query has been sent successfully"
+}
+
+
+https://meetnmarry.com/api/addon-check
+
+response:
+{
+  "result": true,
+  "data": [
+    "otp_system"
+  ]
+}
+
+
+https://meetnmarry.com/api/feature-check
+
+response:
+{
+  "result": true,
+  "data": [
+    "google_login",
+    "facebook_login",
+    "twitter_login"
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/app-info
+
+response:
+{
+  "result": true,
+  "data": {
+    "website_name": "Matrimonial",
+    "system_logo": "/public/uploads/all/VLzKP5yQnLkojP6Qo5tw3Hqmq66xmzclDD5ccqt3.png",
+    "how_it_works_title": "How It Works",
+    "how_it_works_sub_title": "When you realize you want to spend the rest of your life with somebody, you want the rest of your life to start as soon as possible.",
+    "how_it_works": [
+      {
+        "steps": 1,
+        "how_it_works_steps_titles": "Sign up",
+        "how_it_works_steps_sub_titles": "Register for free & put up your Profile",
+        "how_it_works_steps_icons": "/public/uploads/all/Dz7iRoKk4NVftWS2NUBCJYb9hyGShKfciMfhW34m.png"
+      },
+      {
+        "steps": 2,
+        "how_it_works_steps_titles": "Connect",
+        "how_it_works_steps_sub_titles": "Select & Connect with Matches you like",
+        "how_it_works_steps_icons": "/public/uploads/all/q7oLZIUsbv2sCeGydBzDZB400XkPnvCmd7dxN8jX.png"
+      },
+      {
+        "steps": 3,
+        "how_it_works_steps_titles": "Interact",
+        "how_it_works_steps_sub_titles": "Become a Premium Member & Start a Conversation",
+        "how_it_works_steps_icons": "/public/uploads/all/eX4kuKyomyBHsBhGTYvJCRZprXA7osr37SWf9WgY.png"
+      }
+    ]
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/on-behalf
+
+response:
+{
+  "data": [
+    {
+      "id": 11,
+      "name": "Cousin"
+    },
+    {
+      "id": 10,
+      "name": "Sister"
+    },
+    {
+      "id": 9,
+      "name": "Brother"
+    },
+    {
+      "id": 8,
+      "name": "Myself"
+    },
+    {
+      "id": 7,
+      "name": "Aunt"
+    },
+    {
+      "id": 6,
+      "name": "Uncle"
+    },
+    {
+      "id": 5,
+      "name": "Niece"
+    },
+    {
+      "id": 4,
+      "name": "Nephew"
+    },
+    {
+      "id": 3,
+      "name": "Daughter"
+    },
+    {
+      "id": 2,
+      "name": "Son"
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/public-profile/6
+
+response:
+{
+  "result": true,
+  "data": {
+    "intoduction": {
+      "introduction": null
+    },
+    "basic_info": {
+      "firs_name": "Jaber",
+      "last_name": "Ahmed",
+      "date_of_birth": "2024-04-22 00:00:00",
+      "onbehalf": null,
+      "no_of_children": null,
+      "gender": "1",
+      "phone": "01234567890",
+      "maritial_status": "Single",
+      "photo": "/public/uploads/all/U474j0WOBKGzld9Ugc8agmO1rr3N530bWQQKLCNS.jpg"
+    },
+    "present_address": {
+      "country": "Bangladesh",
+      "state": "Dhaka",
+      "city": "Dhaka",
+      "postal_code": "1230"
+    },
+    "contact_details": {
+      "email": "jaber1112@gmail.com",
+      "phone": "01234567890"
+    },
+    "education": [
+      {
+        "id": 2,
+        "degree": "B.Sc",
+        "institution": "RUET",
+        "start": 2016,
+        "end": 2023
+      }
+    ],
+    "career": [
+      {
+        "id": 2,
+        "designation": "SE",
+        "company": "BAL",
+        "start": 2023,
+        "end": 2024,
+        "present": ""
+      },
+      {
+        "id": 3,
+        "designation": "SE",
+        "company": "BAL",
+        "start": 2023,
+        "end": 2024,
+        "present": ""
+      }
+    ],
+    "physical_attributes": {
+      "height": 6,
+      "weight": 50,
+      "eye_color": "Hd",
+      "hair_color": "Sh",
+      "complexion": "Dhd",
+      "blood_group": "A+",
+      "body_type": "Hd",
+      "body_art": "Hd",
+      "disability": "Hd"
+    },
+    "known_languages": [
+      {
+        "id": 1,
+        "name": "Bangali"
+      },
+      {
+        "id": 2,
+        "name": "English"
+      }
+    ],
+    "mother_tongue": {
+      "id": 1,
+      "name": "Bangali"
+    },
+    "hobbies_interest": {
+      "hobbies": "HD",
+      "interests": "HD",
+      "music": "HD",
+      "books": "HD",
+      "movies": "HD",
+      "tv_shows": "HD",
+      "sports": "HD",
+      "fitness_activities": "HD",
+      "cuisines": "HD",
+      "dress_styles": "HD"
+    },
+    "attitude_behavior": {
+      "affection": "HD",
+      "humor": "HD",
+      "political_views": "HD",
+      "religious_service": "HD"
+    },
+    "residence_info": {
+      "birth_country": "Bangladesh",
+      "recidency_country": "Bangladesh",
+      "growup_country": "Bangladesh",
+      "immigration_status": "None"
+    },
+    "spiritual_backgrounds": {
+      "religion_id": "Muslim",
+      "caste_id": "Shiya",
+      "sub_caste_id": "",
+      "ethnicity": "HD",
+      "personal_value": "HD",
+      "family_value_id": "",
+      "community_value": "HD"
+    },
+    "lifestyles": {
+      "diet": "yes",
+      "drink": "yes",
+      "smoke": "yes",
+      "living_with": "HD"
+    },
+    "astrologies": {
+      "sun_sign": "HD",
+      "moon_sign": "HD",
+      "time_of_birth": "HD",
+      "city_of_birth": "HD"
+    },
+    "permanent_address": {
+      "country": "Bangladesh",
+      "state": "Dhaka",
+      "city": "Dhaka",
+      "postal_code": "1230"
+    },
+    "families_information": {
+      "father": "Dead",
+      "mother": "Dead",
+      "sibling": "Dead"
+    },
+    "partner_expectation": {
+      "general": "FIT",
+      "height": "4",
+      "weight": "70",
+      "marital_status": "Single",
+      "children_acceptable": "dose_not_matter",
+      "residence_country_id": "Bangladesh",
+      "religion_id": "Muslim",
+      "caste_id": "Bangladeshi",
+      "sub_caste_id": "",
+      "education": "Bsc",
+      "profession": "SE",
+      "smoking_acceptable": "yes",
+      "drinking_acceptable": "yes",
+      "diet": "yes",
+      "body_type": "FIT",
+      "personal_value": "FIT",
+      "manglik": "yes",
+      "language": "English",
+      "family_value_id": "",
+      "preferred_country_id": "Bangladesh",
+      "preferred_state_id": "Dhaka",
+      "complexion": "FIT"
+    },
+    "photo_gallery": [
+      {
+        "image_path": "/public/uploads/all/U474j0WOBKGzld9Ugc8agmO1rr3N530bWQQKLCNS.jpg"
+      }
+    ],
+    "profile_match": 31
+  }
+}
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/profile-settings
+
+response:
+
+https://meetnmarry.com/api_testing/profilesettings.txt (11MB)
+
+
+
+https://meetnmarry.com/api/member/introduction
+
+response:
+{
+  "data": {
+    "introduction": null
+  },
+  "result": true
+}
+
+
+https://meetnmarry.com/api/member/get-email
+
+{
+  "result": true,
+  "data": {
+    "email": "lamiakhan@gmail.com"
+  }
+}
+
+
+https://meetnmarry.com/api/member/introduction-update
+
+{
+    "introduction": "I am Lamia Khanki"
+  }
+
+
+
+
+
+response:
+{
+  "result": true,
+  "message": "Introduction updated successfully!"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/basic-info
+
+response:
+{
+  "data": {
+    "firs_name": "Lamia",
+    "last_name": "Khan",
+    "date_of_birth": "2000-06-01 00:00:00",
+    "onbehalf": {
+      "id": 2,
+      "name": "Son"
+    },
+    "no_of_children": null,
+    "gender": "2",
+    "phone": "01234567890",
+    "maritial_status": "Single",
+    "photo": "/public/uploads/all/V1B8b09X8vDAGdIis5GYp8pdE9GHEFw3wwRSw0cl.jpg"
+  },
+  "result": true
+}
+
+https://meetnmarry.com/api/member/present/address
+
+response:
+{
+  "data": {
+    "country": "Bangladesh",
+    "state": "Dhaka",
+    "city": "Dhaka",
+    "postal_code": "1230"
+  },
+  "result": true
+}
+
+https://meetnmarry.com/api/member/permanent/address
+
+response:
+{
+  "data": {
+    "country": "Bangladesh",
+    "state": "Dhaka",
+    "city": "Dhaka",
+    "postal_code": "1230"
+  },
+  "result": true
+}
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/address/update
+
+request:
+{
+  "country_id":"1",
+  "city_id":1,
+  "state_id":1,
+  "postal_code":"1230"
+}
+
+response:
+{
+  "result": true,
+  "message": "Address info has been updated successfully"
+}
+
+
+https://meetnmarry.com/api/member/education-status/update
+
+request:
+{
+    "id": 1,
+    "status": true
+}
+
+response:
+{
+  "result": true,
+  "message": "Education status has been changed."
+}
+
+
+https://meetnmarry.com/api/member/career-status/update
+
+request:
+{
+    "id": 1,
+    "status": true
+}
+
+
+response:
+{
+  "result": true,
+  "message": "Career status is updated"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/physical-attributes
+
+response:
+{
+  "data": {
+    "height": 6,
+    "weight": 70,
+    "eye_color": "Hd",
+    "hair_color": "Sh",
+    "complexion": "Dhd",
+    "blood_group": "A+",
+    "body_type": "Hd",
+    "body_art": "Hd",
+    "disability": "Hd"
+  },
+  "result": true
+}
+
+
+https://meetnmarry.com/api/member/language
+
+response:
+{
+  "result": true,
+  "data": {
+    "mother_tongue": {
+      "id": 1,
+      "name": "Bangali"
+    },
+    "known_languages": [
+      {
+        "id": 1,
+        "name": "Bangali"
+      },
+      {
+        "id": 2,
+        "name": "English"
+      }
+    ]
+  }
+}
+
+
+https://meetnmarry.com/api/member/language/update
+
+request:
+{
+    "mothere_tongue": "1",
+    "known_languages": ["2", "3"]
+}
+
+response:
+{
+  "result": true,
+  "message": "Member language info has been updated successfully"
+}
+
+
+
+https://meetnmarry.com/api/member/hobbies-interests
+
+response:
+{
+  "data": {
+    "hobbies": "HD",
+    "interests": "HD",
+    "music": "HD",
+    "books": "HD",
+    "movies": "HD",
+    "tv_shows": "HD",
+    "sports": "HD",
+    "fitness_activities": "HD",
+    "cuisines": "HD",
+    "dress_styles": "HD"
+  },
+  "result": true
+}
+
+https://meetnmarry.com/api/member/hobbies/update
+
+request:
+{
+    "hobbies": "Reading, Painting",
+    "interests": "Travel, Photography",
+    "music": "Pop, Rock",
+    "books": "Fiction, History",
+    "movies": "Action, Comedy",
+    "tv_shows": "Drama, Sitcoms",
+    "sports": "Tennis, Swimming",
+    "fitness_activities": "Yoga, Running",
+    "cuisines": "Italian, Japanese",
+    "dress_styles": "Casual, Formal"
+}
+
+response:
+{
+  "result": true,
+  "message": "Hobby and Interests info has been updated successfully"
+}
+
+
+https://meetnmarry.com/api/member/attitude-behavior
+
+response:
+{
+  "data": {
+    "affection": "HD",
+    "humor": "HD",
+    "political_views": "HD",
+    "religious_service": "HD"
+  },
+  "result": true
+}
+
+
+
+
+
+https://meetnmarry.com/api/member/attitude-behavior/update
+
+request:
+{
+    "affection": "Loving and caring",
+    "humor": "Witty and sarcastic",
+    "political_views": "Moderate",
+    "religious_service": "Regular attendee"
+}
+
+response:
+
+{
+  "result": true,
+  "message": "Personal Attitude and Behavior Info has been updated successfully"
+}
+
+
+https://meetnmarry.com/api/member/happy-story
+
+response:
+
+{
+  "result": false,
+  "message": "Invalid Data!"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/notifications
+
+{
+  "data": [
+    {
+      "check": true,
+      "notification_id": 28,
+      "photo": "/public/uploads/all/Wt2UJkpRuTN8X6DEK51KFC7NTfzFWnK2u99XVaTa.png",
+      "message": "sunny gpc  has Expressed Interest On You.",
+      "time": "2 months ago",
+      "read_at": "read"
+    },
+    {
+      "check": true,
+      "notification_id": 25,
+      "photo": "/public/uploads/all/xosGyoeSksu96T5FJMnde5Iufshp9wFBRPT4xBHc.jpg",
+      "message": "md tanvir  has Expressed Interest On You.",
+      "time": "2 months ago",
+      "read_at": "read"
+    },
+    {
+      "check": true,
+      "notification_id": 9,
+      "photo": "/public/uploads/all/U474j0WOBKGzld9Ugc8agmO1rr3N530bWQQKLCNS.jpg",
+      "message": "Jaber Ahmed  has Expressed Interest On You.",
+      "time": "2 months ago",
+      "read_at": "read"
+    },
+    {
+      "check": true,
+      "notification_id": 8,
+      "photo": "/public/uploads/all/V1B8b09X8vDAGdIis5GYp8pdE9GHEFw3wwRSw0cl.jpg",
+      "message": "Your payment for package Silver has been approved. Payment Id: 240422-182841",
+      "time": "2 months ago",
+      "read_at": "read"
+    }
+  ],
+  "links": {
+    "first": "https://meetnmarry.com/api/member/notifications?page=1",
+    "last": "https://meetnmarry.com/api/member/notifications?page=1",
+    "prev": null,
+    "next": null
+  },
+  "meta": {
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "https://meetnmarry.com/api/member/notifications?page=1",
+        "label": "1",
+        "active": true
+      },
+      {
+        "url": null,
+        "label": "Next &raquo;",
+        "active": false
+      }
+    ],
+    "path": "https://meetnmarry.com/api/member/notifications",
+    "per_page": 10,
+    "to": 4,
+    "total": 4
+  },
+  "result": true
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/my-referral-earnings
+
+{
+  "result": false,
+  "message": "You are not authorized to access!!"
+}
+
+
+https://meetnmarry.com/api/member/my-referral-earnings
+
+{
+  "result": false,
+  "message": "You are not authorized to access!!"
+}
+
+https://meetnmarry.com/api/member/referral-code
+
+{
+  "result": false,
+  "message": "You are not authorized to access!!"
+}
+
+https://meetnmarry.com/api/member/referred-users
+
+{
+  "result": false,
+  "message": "You are not authorized to access!!"
+}
+
+
+https://meetnmarry.com/api/member/my-wallet-balance
+
+{
+  "result": true,
+  "data": {
+    "wallet_balance": "0.00$"
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/wallet
+
+{
+  "data": [],
+  "links": {
+    "first": "https://meetnmarry.com/api/member/wallet?page=1",
+    "last": "https://meetnmarry.com/api/member/wallet?page=1",
+    "prev": null,
+    "next": null
+  },
+  "meta": {
+    "current_page": 1,
+    "from": null,
+    "last_page": 1,
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "https://meetnmarry.com/api/member/wallet?page=1",
+        "label": "1",
+        "active": true
+      },
+      {
+        "url": null,
+        "label": "Next &raquo;",
+        "active": false
+      }
+    ],
+    "path": "https://meetnmarry.com/api/member/wallet",
+    "per_page": 10,
+    "to": null,
+    "total": 0
+  },
+  "result": true
+}
+
+
+https://meetnmarry.com/api/member/wallet-withdraw-request-history
+
+{
+  "result": false,
+  "message": "You are not authorized to access!!"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/wallet-recharge
+
+request:
+{
+    "amount": 100,
+    "payment_method": "manual_payment_1",
+    "payment_details": "Payment via bank transfer",
+    "reciept": "base64_encoded_reciept_data"
+}
+
+
+response:
+{
+  "result": true,
+  "message": "Payment completed"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/my-shortlists
+
+{
+  "data": [
+    {
+      "user_id": 6,
+      "package_update_alert": false,
+      "photo": "/public/uploads/all/U474j0WOBKGzld9Ugc8agmO1rr3N530bWQQKLCNS.jpg",
+      "name": "Jaber Ahmed",
+      "age": 0,
+      "religion": "Muslim",
+      "country": "Bangladesh",
+      "mothere_tongue": "Bangali",
+      "express_interest": false
+    }
+  ],
+  "links": {
+    "first": "https://meetnmarry.com/api/member/my-shortlists?page=1",
+    "last": "https://meetnmarry.com/api/member/my-shortlists?page=1",
+    "prev": null,
+    "next": null
+  },
+  "meta": {
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "https://meetnmarry.com/api/member/my-shortlists?page=1",
+        "label": "1",
+        "active": true
+      },
+      {
+        "url": null,
+        "label": "Next &raquo;",
+        "active": false
+      }
+    ],
+    "path": "https://meetnmarry.com/api/member/my-shortlists",
+    "per_page": 10,
+    "to": 1,
+    "total": 1
+  },
+  "result": true
+}
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/add-to-shortlist
+
+request:
+{
+    "user_id": 5
+}
+
+response:
+{
+  "result": true,
+  "message": "You Have Shortlisted This Member."
+}
+
+
+https://meetnmarry.com/api/member/remove-from-shortlist
+
+request:
+{
+    "user_id": 5
+}
+
+response:
+{
+  "result": true,
+  "message": "You Have Removed This Member From Your Shortlist."
+}
+
+
+https://meetnmarry.com/api/member/residency-info
+
+{
+  "data": {
+    "birth_country": "Bangladesh",
+    "recidency_country": "Bangladesh",
+    "growup_country": "Bangladesh",
+    "immigration_status": "None"
+  },
+  "result": true
+}
+
+https://meetnmarry.com/api/member/residency-info/update
+
+request:
+{
+    "birth_country": "Bangladesh",
+    "recidency_country": "Bangladesh",
+    "growup_country": "Bangladesh",
+    "immigration_status": "None"
+  }
+
+
+response:
+{
+  "result": true,
+  "message": "Residency Info has been updated successfully"
+}
+
+
+
+https://meetnmarry.com/api/member/spiritual-background
+
+{
+  "data": {
+    "religion_id": "Muslim",
+    "caste_id": "Shiya",
+    "sub_caste_id": "",
+    "ethnicity": "HD",
+    "personal_value": "HD",
+    "family_value_id": "",
+    "community_value": "HD"
+  },
+  "result": true
+}
+
+
+https://meetnmarry.com/api/member/spiritual-background/update
+
+request:
+{
+    "member_religion_id": 1,
+    "member_caste_id": 2,
+    "member_sub_caste_id": 3,
+    "ethnicity": "Asian",
+    "personal_value": "High",
+    "family_value_id": 4,
+    "community_value": "Moderate"
+}
+
+response:
+{
+  "result": true,
+  "message": "Spiritual Background info has been updated successfully"
+}
+
+
+https://meetnmarry.com/api/member/life-style
+
+{
+  "data": {
+    "diet": "yes",
+    "drink": "yes",
+    "smoke": "yes",
+    "living_with": "HD"
+  },
+  "result": true
+}
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/life-style/update
+
+request:
+{
+    "diet": "Vegetarian",
+    "drink": "Occasionally",
+    "smoke": "No",
+    "living_with": "Family"
+}
+
+response:
+{
+  "result": true,
+  "message": "Lifestyle info has been updated successfully"
+}
+
+
+https://meetnmarry.com/api/member/astronomic
+
+{
+  "data": {
+    "sun_sign": "HD",
+    "moon_sign": "HD",
+    "time_of_birth": "HD",
+    "city_of_birth": "HD"
+  },
+  "result": true
+}
+
+
+https://meetnmarry.com/api/member/astronomic/update
+
+request:
+ {
+    "sun_sign": "HDX",
+    "moon_sign": "HDX",
+    "time_of_birth": "HDX",
+    "city_of_birth": "HDX"
+  }
+
+response:
+{
+  "result": true,
+  "message": "Astronomic Info has been updated successfully"
+}
+
+https://meetnmarry.com/api/member/family-info
+
+{
+  "data": {
+    "father": "Dead",
+    "mother": "Dead",
+    "sibling": "Dead"
+  },
+  "result": true
+}
+
+
+
+https://meetnmarry.com/api/member/family-info/update
+
+request:
+{
+    "father": "DeadX",
+    "mother": "DeadX",
+    "sibling": "DeadX"
+  }
+
+response:
+{
+  "result": true,
+  "message": "Family info has been updated successfully"
+}
+
+https://meetnmarry.com/api/member/partner-expectation
+
+{
+  "data": {
+    "general": "FIT",
+    "height": "4",
+    "weight": "70",
+    "marital_status": "Single",
+    "children_acceptable": "dose_not_matter",
+    "residence_country_id": "Bangladesh",
+    "religion_id": "Muslim",
+    "caste_id": "Bangladeshi",
+    "sub_caste_id": "",
+    "education": "Bsc",
+    "profession": "SE",
+    "smoking_acceptable": "yes",
+    "drinking_acceptable": "yes",
+    "diet": "yes",
+    "body_type": "FIT",
+    "personal_value": "FIT",
+    "manglik": "yes",
+    "language": "English",
+    "family_value_id": "",
+    "preferred_country_id": "Bangladesh",
+    "preferred_state_id": "Dhaka",
+    "complexion": "FIT"
+  },
+  "result": true
+}
+https://meetnmarry.com/api/member/partner-expectation/update
+
+request:
+{
+    "general": "FITX",
+    "height": "5",
+    "weight": "70",
+    "marital_status": "Single",
+    "children_acceptable": "dose_not_matter",
+    "residence_country_id": "1",
+    "religion_id": "Muslim",
+    "caste_id": "Bangladeshi",
+    "sub_caste_id": "",
+    "education": "Bsc",
+    "profession": "SEX",
+    "smoking_acceptable": "yes",
+    "drinking_acceptable": "yes",
+    "diet": "yes",
+    "body_type": "FITX",
+    "personal_value": "FITX",
+    "manglik": "yes",
+    "language": "English",
+    "family_value_id": "",
+    "preferred_country_id": "Bangladesh",
+    "preferred_state_id": "Dhaka",
+    "complexion": "FITX"
+  }
+
+response:
+{
+  "result": true,
+  "message": "Partner Expectations Info has been updated successfully"
+}
+https://meetnmarry.com/api/member/change/password
+
+request:
+{
+    "old_password": "1234567890",
+    "password": "newpassword456",
+    "password_confirmation": "newpassword456"
+}
+
+response:
+{
+  "result": true,
+  "message": "Password Updated successfully."
+}
+https://meetnmarry.com/api/member/contact-info/update
+request:
+{
+    "email": "lamiakhan@gmail.com",
+    "phone": "123-456-7890"
+}
+
+response:
+{
+  "result": true,
+  "message": "Contact Info has been updated successfully"
+}
+
+https://meetnmarry.com/api/member/dashboard
+{
+  "result": true,
+  "data": {
+    "member_name": "Lamia Khan",
+    "member_email": "lamiakhan@gmail.com",
+    "member_photo": "/public/uploads/all/V1B8b09X8vDAGdIis5GYp8pdE9GHEFw3wwRSw0cl.jpg",
+    "remaining_interest": 165,
+    "remaining_contact_view": 160,
+    "remaining_photo_gallery": 161,
+    "remaining_profile_image_view": "",
+    "remaining_gallery_image_view": "",
+    "current_package_info": {
+      "package_id": 10,
+      "package_name": "Gold Plus",
+      "package_expiry": "30.08.2024"
+    },
+    "matched_profiles": []
+  }
+}
+https://meetnmarry.com/api/member/check-happy-story
+{
+  "result": false,
+  "message": "Happy Story Does Not Found!!"
+}
+https://meetnmarry.com/api/member/maritial-status
+{
+  "data": [
+    {
+      "id": 5,
+      "name": "Separated"
+    },
+    {
+      "id": 4,
+      "name": "Widowed"
+    },
+    {
+      "id": 3,
+      "name": "Divorced"
+    },
+    {
+      "id": 2,
+      "name": "Married"
+    },
+    {
+      "id": 1,
+      "name": "Single"
+    }
+  ]
+}
+https://meetnmarry.com/api/member/countries
+
+response:
+https://meetnmarry.com/api_testing/countrylist.txt
+
+https://meetnmarry.com/api/member/states/1
+{
+  "data": [
+    {
+      "id": 42,
+      "name": "Badakhshan"
+    },
+    {
+      "id": 43,
+      "name": "Badgis"
+    },
+    {
+      "id": 44,
+      "name": "Baglan"
+    },
+    {
+      "id": 45,
+      "name": "Balkh"
+    },
+    {
+      "id": 46,
+      "name": "Bamiyan"
+    },
+    {
+      "id": 47,
+      "name": "Farah"
+    },
+    {
+      "id": 48,
+      "name": "Faryab"
+    },
+    {
+      "id": 49,
+      "name": "Gawr"
+    },
+    {
+      "id": 50,
+      "name": "Gazni"
+    },
+    {
+      "id": 51,
+      "name": "Herat"
+    },
+    {
+      "id": 52,
+      "name": "Hilmand"
+    },
+    {
+      "id": 53,
+      "name": "Jawzjan"
+    },
+    {
+      "id": 54,
+      "name": "Kabul"
+    },
+    {
+      "id": 55,
+      "name": "Kapisa"
+    },
+    {
+      "id": 56,
+      "name": "Khawst"
+    },
+    {
+      "id": 57,
+      "name": "Kunar"
+    },
+    {
+      "id": 58,
+      "name": "Lagman"
+    },
+    {
+      "id": 59,
+      "name": "Lawghar"
+    },
+    {
+      "id": 60,
+      "name": "Nangarhar"
+    },
+    {
+      "id": 61,
+      "name": "Nimruz"
+    },
+    {
+      "id": 62,
+      "name": "Nuristan"
+    },
+    {
+      "id": 63,
+      "name": "Paktika"
+    },
+    {
+      "id": 64,
+      "name": "Paktiya"
+    },
+    {
+      "id": 65,
+      "name": "Parwan"
+    },
+    {
+      "id": 66,
+      "name": "Qandahar"
+    },
+    {
+      "id": 67,
+      "name": "Qunduz"
+    },
+    {
+      "id": 68,
+      "name": "Samangan"
+    },
+    {
+      "id": 69,
+      "name": "Sar-e Pul"
+    },
+    {
+      "id": 70,
+      "name": "Takhar"
+    },
+    {
+      "id": 71,
+      "name": "Uruzgan"
+    },
+    {
+      "id": 72,
+      "name": "Wardag"
+    },
+    {
+      "id": 73,
+      "name": "Zabul"
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/cities/1
+
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Bombuflat"
+    },
+    {
+      "id": 2,
+      "name": "Garacharma"
+    },
+    {
+      "id": 3,
+      "name": "Port Blair"
+    },
+    {
+      "id": 4,
+      "name": "Rangat"
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/languages
+
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Bangali"
+    },
+    {
+      "id": 2,
+      "name": "English"
+    },
+    {
+      "id": 3,
+      "name": "Hindi"
+    },
+    {
+      "id": 4,
+      "name": "Arabic"
+    },
+    {
+      "id": 5,
+      "name": "Gujarati"
+    },
+    {
+      "id": 6,
+      "name": "Kannada"
+    },
+    {
+      "id": 7,
+      "name": "Malayalam"
+    },
+    {
+      "id": 8,
+      "name": "Marathi"
+    },
+    {
+      "id": 9,
+      "name": "Odia"
+    },
+    {
+      "id": 10,
+      "name": "Parsi"
+    },
+    {
+      "id": 11,
+      "name": "Punjabi"
+    },
+    {
+      "id": 12,
+      "name": "Sindhi"
+    },
+    {
+      "id": 13,
+      "name": "Spanish"
+    },
+    {
+      "id": 14,
+      "name": "Tamil"
+    },
+    {
+      "id": 15,
+      "name": "Telugu"
+    },
+    {
+      "id": 16,
+      "name": "Urdu"
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/religions
+
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Muslim"
+    },
+    {
+      "id": 2,
+      "name": "Hindu"
+    },
+    {
+      "id": 3,
+      "name": "Buddhist"
+    },
+    {
+      "id": 4,
+      "name": "Christian"
+    },
+    {
+      "id": 5,
+      "name": "Sikh"
+    },
+    {
+      "id": 6,
+      "name": "Jain"
+    },
+    {
+      "id": 7,
+      "name": "Jewish"
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/casts/1
+
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Bangladeshi"
+    },
+    {
+      "id": 2,
+      "name": "Shiya"
+    }
+  ]
+}
+
+
+https://meetnmarry.com/api/member/sub-casts/1
+
+{
+  "data": []
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/family-values
+
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Respect"
+    },
+    {
+      "id": 2,
+      "name": "Unity"
+    },
+    {
+      "id": 3,
+      "name": "Love and Care"
+    },
+    {
+      "id": 4,
+      "name": "Tradition and Culture"
+    },
+    {
+      "id": 5,
+      "name": "Education and Hard"
+    },
+    {
+      "id": 6,
+      "name": "Education and Hard Work"
+    },
+    {
+      "id": 7,
+      "name": "Support and Encouragement"
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/profile-dropdown
+
+{
+  "result": true,
+  "data": {
+    "onbehalf_list": [
+      {
+        "id": 11,
+        "name": "Cousin"
+      },
+      {
+        "id": 10,
+        "name": "Sister"
+      },
+      {
+        "id": 9,
+        "name": "Brother"
+      },
+      {
+        "id": 8,
+        "name": "Myself"
+      },
+      {
+        "id": 7,
+        "name": "Aunt"
+      },
+      {
+        "id": 6,
+        "name": "Uncle"
+      },
+      {
+        "id": 5,
+        "name": "Niece"
+      },
+      {
+        "id": 4,
+        "name": "Nephew"
+      },
+      {
+        "id": 3,
+        "name": "Daughter"
+      },
+      {
+        "id": 2,
+        "name": "Son"
+      }
+    ],
+    "maritial_status": [
+      {
+        "id": 5,
+        "name": "Separated"
+      },
+      {
+        "id": 4,
+        "name": "Widowed"
+      },
+      {
+        "id": 3,
+        "name": "Divorced"
+      },
+      {
+        "id": 2,
+        "name": "Married"
+      },
+      {
+        "id": 1,
+        "name": "Single"
+      }
+    ],
+    "language_list": [
+      {
+        "id": 1,
+        "name": "Bangali"
+      },
+      {
+        "id": 2,
+        "name": "English"
+      },
+      {
+        "id": 3,
+        "name": "Hindi"
+      },
+      {
+        "id": 4,
+        "name": "Arabic"
+      },
+      {
+        "id": 5,
+        "name": "Gujarati"
+      },
+      {
+        "id": 6,
+        "name": "Kannada"
+      },
+      {
+        "id": 7,
+        "name": "Malayalam"
+      },
+      {
+        "id": 8,
+        "name": "Marathi"
+      },
+      {
+        "id": 9,
+        "name": "Odia"
+      },
+      {
+        "id": 10,
+        "name": "Parsi"
+      },
+      {
+        "id": 11,
+        "name": "Punjabi"
+      },
+      {
+        "id": 12,
+        "name": "Sindhi"
+      },
+      {
+        "id": 13,
+        "name": "Spanish"
+      },
+      {
+        "id": 14,
+        "name": "Tamil"
+      },
+      {
+        "id": 15,
+        "name": "Telugu"
+      },
+      {
+        "id": 16,
+        "name": "Urdu"
+      }
+    ],
+    "religion_list": [
+      {
+        "id": 1,
+        "name": "Muslim"
+      },
+      {
+        "id": 2,
+        "name": "Hindu"
+      },
+      {
+        "id": 3,
+        "name": "Buddhist"
+      },
+      {
+        "id": 4,
+        "name": "Christian"
+      },
+      {
+        "id": 5,
+        "name": "Sikh"
+      },
+      {
+        "id": 6,
+        "name": "Jain"
+      },
+      {
+        "id": 7,
+        "name": "Jewish"
+      }
+    ],
+    "family_value_list": [
+      {
+        "id": 1,
+        "name": "Respect"
+      },
+      {
+        "id": 2,
+        "name": "Unity"
+      },
+      {
+        "id": 3,
+        "name": "Love and Care"
+      },
+      {
+        "id": 4,
+        "name": "Tradition and Culture"
+      },
+      {
+        "id": 5,
+        "name": "Education and Hard"
+      },
+      {
+        "id": 6,
+        "name": "Education and Hard Work"
+      },
+      {
+        "id": 7,
+        "name": "Support and Encouragement"
+      }
+    ],
+    "country_list": [
+      {
+        "id": 1,
+        "name": "Afghanistan"
+      },
+      {
+        "id": 2,
+        "name": "Albania"
+      },
+      {
+        "id": 3,
+        "name": "Algeria"
+      },
+      {
+        "id": 4,
+        "name": "American Samoa"
+      },
+      {
+        "id": 5,
+        "name": "Andorra"
+      },
+      {
+        "id": 6,
+        "name": "Angola"
+      },
+      {
+        "id": 7,
+        "name": "Anguilla"
+      },
+      {
+        "id": 8,
+        "name": "Antarctica"
+      },
+      {
+        "id": 9,
+        "name": "Antigua And Barbuda"
+      },
+      {
+        "id": 10,
+        "name": "Argentina"
+      },
+      {
+        "id": 11,
+        "name": "Armenia"
+      },
+      {
+        "id": 12,
+        "name": "Aruba"
+      },
+      {
+        "id": 13,
+        "name": "Australia"
+      },
+      {
+        "id": 14,
+        "name": "Austria"
+      },
+      {
+        "id": 15,
+        "name": "Azerbaijan"
+      },
+      {
+        "id": 16,
+        "name": "Bahamas The"
+      },
+      {
+        "id": 17,
+        "name": "Bahrain"
+      },
+      {
+        "id": 18,
+        "name": "Bangladesh"
+      },
+      {
+        "id": 19,
+        "name": "Barbados"
+      },
+      {
+        "id": 20,
+        "name": "Belarus"
+      },
+      {
+        "id": 21,
+        "name": "Belgium"
+      },
+      {
+        "id": 22,
+        "name": "Belize"
+      },
+      {
+        "id": 23,
+        "name": "Benin"
+      },
+      {
+        "id": 24,
+        "name": "Bermuda"
+      },
+      {
+        "id": 25,
+        "name": "Bhutan"
+      },
+      {
+        "id": 26,
+        "name": "Bolivia"
+      },
+      {
+        "id": 27,
+        "name": "Bosnia and Herzegovina"
+      },
+      {
+        "id": 28,
+        "name": "Botswana"
+      },
+      {
+        "id": 29,
+        "name": "Bouvet Island"
+      },
+      {
+        "id": 30,
+        "name": "Brazil"
+      },
+      {
+        "id": 31,
+        "name": "British Indian Ocean Territory"
+      },
+      {
+        "id": 32,
+        "name": "Brunei"
+      },
+      {
+        "id": 33,
+        "name": "Bulgaria"
+      },
+      {
+        "id": 34,
+        "name": "Burkina Faso"
+      },
+      {
+        "id": 35,
+        "name": "Burundi"
+      },
+      {
+        "id": 36,
+        "name": "Cambodia"
+      },
+      {
+        "id": 37,
+        "name": "Cameroon"
+      },
+      {
+        "id": 38,
+        "name": "Canada"
+      },
+      {
+        "id": 39,
+        "name": "Cape Verde"
+      },
+      {
+        "id": 40,
+        "name": "Cayman Islands"
+      },
+      {
+        "id": 41,
+        "name": "Central African Republic"
+      },
+      {
+        "id": 42,
+        "name": "Chad"
+      },
+      {
+        "id": 43,
+        "name": "Chile"
+      },
+      {
+        "id": 44,
+        "name": "China"
+      },
+      {
+        "id": 45,
+        "name": "Christmas Island"
+      },
+      {
+        "id": 46,
+        "name": "Cocos (Keeling) Islands"
+      },
+      {
+        "id": 47,
+        "name": "Colombia"
+      },
+      {
+        "id": 48,
+        "name": "Comoros"
+      },
+      {
+        "id": 49,
+        "name": "Republic Of The Congo"
+      },
+      {
+        "id": 50,
+        "name": "Democratic Republic Of The Congo"
+      },
+      {
+        "id": 51,
+        "name": "Cook Islands"
+      },
+      {
+        "id": 52,
+        "name": "Costa Rica"
+      },
+      {
+        "id": 53,
+        "name": "Cote D'Ivoire (Ivory Coast)"
+      },
+      {
+        "id": 54,
+        "name": "Croatia (Hrvatska)"
+      },
+      {
+        "id": 55,
+        "name": "Cuba"
+      },
+      {
+        "id": 56,
+        "name": "Cyprus"
+      },
+      {
+        "id": 57,
+        "name": "Czech Republic"
+      },
+      {
+        "id": 58,
+        "name": "Denmark"
+      },
+      {
+        "id": 59,
+        "name": "Djibouti"
+      },
+      {
+        "id": 60,
+        "name": "Dominica"
+      },
+      {
+        "id": 61,
+        "name": "Dominican Republic"
+      },
+      {
+        "id": 62,
+        "name": "East Timor"
+      },
+      {
+        "id": 63,
+        "name": "Ecuador"
+      },
+      {
+        "id": 64,
+        "name": "Egypt"
+      },
+      {
+        "id": 65,
+        "name": "El Salvador"
+      },
+      {
+        "id": 66,
+        "name": "Equatorial Guinea"
+      },
+      {
+        "id": 67,
+        "name": "Eritrea"
+      },
+      {
+        "id": 68,
+        "name": "Estonia"
+      },
+      {
+        "id": 69,
+        "name": "Ethiopia"
+      },
+      {
+        "id": 70,
+        "name": "External Territories of Australia"
+      },
+      {
+        "id": 71,
+        "name": "Falkland Islands"
+      },
+      {
+        "id": 72,
+        "name": "Faroe Islands"
+      },
+      {
+        "id": 73,
+        "name": "Fiji Islands"
+      },
+      {
+        "id": 74,
+        "name": "Finland"
+      },
+      {
+        "id": 75,
+        "name": "France"
+      },
+      {
+        "id": 76,
+        "name": "French Guiana"
+      },
+      {
+        "id": 77,
+        "name": "French Polynesia"
+      },
+      {
+        "id": 78,
+        "name": "French Southern Territories"
+      },
+      {
+        "id": 79,
+        "name": "Gabon"
+      },
+      {
+        "id": 80,
+        "name": "Gambia The"
+      },
+      {
+        "id": 81,
+        "name": "Georgia"
+      },
+      {
+        "id": 82,
+        "name": "Germany"
+      },
+      {
+        "id": 83,
+        "name": "Ghana"
+      },
+      {
+        "id": 84,
+        "name": "Gibraltar"
+      },
+      {
+        "id": 85,
+        "name": "Greece"
+      },
+      {
+        "id": 86,
+        "name": "Greenland"
+      },
+      {
+        "id": 87,
+        "name": "Grenada"
+      },
+      {
+        "id": 88,
+        "name": "Guadeloupe"
+      },
+      {
+        "id": 89,
+        "name": "Guam"
+      },
+      {
+        "id": 90,
+        "name": "Guatemala"
+      },
+      {
+        "id": 91,
+        "name": "Guernsey and Alderney"
+      },
+      {
+        "id": 92,
+        "name": "Guinea"
+      },
+      {
+        "id": 93,
+        "name": "Guinea-Bissau"
+      },
+      {
+        "id": 94,
+        "name": "Guyana"
+      },
+      {
+        "id": 95,
+        "name": "Haiti"
+      },
+      {
+        "id": 96,
+        "name": "Heard and McDonald Islands"
+      },
+      {
+        "id": 97,
+        "name": "Honduras"
+      },
+      {
+        "id": 98,
+        "name": "Hong Kong S.A.R."
+      },
+      {
+        "id": 99,
+        "name": "Hungary"
+      },
+      {
+        "id": 100,
+        "name": "Iceland"
+      },
+      {
+        "id": 101,
+        "name": "India"
+      },
+      {
+        "id": 102,
+        "name": "Indonesia"
+      },
+      {
+        "id": 103,
+        "name": "Iran"
+      },
+      {
+        "id": 104,
+        "name": "Iraq"
+      },
+      {
+        "id": 105,
+        "name": "Ireland"
+      },
+      {
+        "id": 106,
+        "name": "Israel"
+      },
+      {
+        "id": 107,
+        "name": "Italy"
+      },
+      {
+        "id": 108,
+        "name": "Jamaica"
+      },
+      {
+        "id": 109,
+        "name": "Japan"
+      },
+      {
+        "id": 110,
+        "name": "Jersey"
+      },
+      {
+        "id": 111,
+        "name": "Jordan"
+      },
+      {
+        "id": 112,
+        "name": "Kazakhstan"
+      },
+      {
+        "id": 113,
+        "name": "Kenya"
+      },
+      {
+        "id": 114,
+        "name": "Kiribati"
+      },
+      {
+        "id": 115,
+        "name": "Korea North"
+      },
+      {
+        "id": 116,
+        "name": "Korea South"
+      },
+      {
+        "id": 117,
+        "name": "Kuwait"
+      },
+      {
+        "id": 118,
+        "name": "Kyrgyzstan"
+      },
+      {
+        "id": 119,
+        "name": "Laos"
+      },
+      {
+        "id": 120,
+        "name": "Latvia"
+      },
+      {
+        "id": 121,
+        "name": "Lebanon"
+      },
+      {
+        "id": 122,
+        "name": "Lesotho"
+      },
+      {
+        "id": 123,
+        "name": "Liberia"
+      },
+      {
+        "id": 124,
+        "name": "Libya"
+      },
+      {
+        "id": 125,
+        "name": "Liechtenstein"
+      },
+      {
+        "id": 126,
+        "name": "Lithuania"
+      },
+      {
+        "id": 127,
+        "name": "Luxembourg"
+      },
+      {
+        "id": 128,
+        "name": "Macau S.A.R."
+      },
+      {
+        "id": 129,
+        "name": "Macedonia"
+      },
+      {
+        "id": 130,
+        "name": "Madagascar"
+      },
+      {
+        "id": 131,
+        "name": "Malawi"
+      },
+      {
+        "id": 132,
+        "name": "Malaysia"
+      },
+      {
+        "id": 133,
+        "name": "Maldives"
+      },
+      {
+        "id": 134,
+        "name": "Mali"
+      },
+      {
+        "id": 135,
+        "name": "Malta"
+      },
+      {
+        "id": 136,
+        "name": "Man (Isle of)"
+      },
+      {
+        "id": 137,
+        "name": "Marshall Islands"
+      },
+      {
+        "id": 138,
+        "name": "Martinique"
+      },
+      {
+        "id": 139,
+        "name": "Mauritania"
+      },
+      {
+        "id": 140,
+        "name": "Mauritius"
+      },
+      {
+        "id": 141,
+        "name": "Mayotte"
+      },
+      {
+        "id": 142,
+        "name": "Mexico"
+      },
+      {
+        "id": 143,
+        "name": "Micronesia"
+      },
+      {
+        "id": 144,
+        "name": "Moldova"
+      },
+      {
+        "id": 145,
+        "name": "Monaco"
+      },
+      {
+        "id": 146,
+        "name": "Mongolia"
+      },
+      {
+        "id": 147,
+        "name": "Montserrat"
+      },
+      {
+        "id": 148,
+        "name": "Morocco"
+      },
+      {
+        "id": 149,
+        "name": "Mozambique"
+      },
+      {
+        "id": 150,
+        "name": "Myanmar"
+      },
+      {
+        "id": 151,
+        "name": "Namibia"
+      },
+      {
+        "id": 152,
+        "name": "Nauru"
+      },
+      {
+        "id": 153,
+        "name": "Nepal"
+      },
+      {
+        "id": 154,
+        "name": "Netherlands Antilles"
+      },
+      {
+        "id": 155,
+        "name": "Netherlands The"
+      },
+      {
+        "id": 156,
+        "name": "New Caledonia"
+      },
+      {
+        "id": 157,
+        "name": "New Zealand"
+      },
+      {
+        "id": 158,
+        "name": "Nicaragua"
+      },
+      {
+        "id": 159,
+        "name": "Niger"
+      },
+      {
+        "id": 160,
+        "name": "Nigeria"
+      },
+      {
+        "id": 161,
+        "name": "Niue"
+      },
+      {
+        "id": 162,
+        "name": "Norfolk Island"
+      },
+      {
+        "id": 163,
+        "name": "Northern Mariana Islands"
+      },
+      {
+        "id": 164,
+        "name": "Norway"
+      },
+      {
+        "id": 165,
+        "name": "Oman"
+      },
+      {
+        "id": 166,
+        "name": "Pakistan"
+      },
+      {
+        "id": 167,
+        "name": "Palau"
+      },
+      {
+        "id": 168,
+        "name": "Palestinian Territory Occupied"
+      },
+      {
+        "id": 169,
+        "name": "Panama"
+      },
+      {
+        "id": 170,
+        "name": "Papua new Guinea"
+      },
+      {
+        "id": 171,
+        "name": "Paraguay"
+      },
+      {
+        "id": 172,
+        "name": "Peru"
+      },
+      {
+        "id": 173,
+        "name": "Philippines"
+      },
+      {
+        "id": 174,
+        "name": "Pitcairn Island"
+      },
+      {
+        "id": 175,
+        "name": "Poland"
+      },
+      {
+        "id": 176,
+        "name": "Portugal"
+      },
+      {
+        "id": 177,
+        "name": "Puerto Rico"
+      },
+      {
+        "id": 178,
+        "name": "Qatar"
+      },
+      {
+        "id": 179,
+        "name": "Reunion"
+      },
+      {
+        "id": 180,
+        "name": "Romania"
+      },
+      {
+        "id": 181,
+        "name": "Russia"
+      },
+      {
+        "id": 182,
+        "name": "Rwanda"
+      },
+      {
+        "id": 183,
+        "name": "Saint Helena"
+      },
+      {
+        "id": 184,
+        "name": "Saint Kitts And Nevis"
+      },
+      {
+        "id": 185,
+        "name": "Saint Lucia"
+      },
+      {
+        "id": 186,
+        "name": "Saint Pierre and Miquelon"
+      },
+      {
+        "id": 187,
+        "name": "Saint Vincent And The Grenadines"
+      },
+      {
+        "id": 188,
+        "name": "Samoa"
+      },
+      {
+        "id": 189,
+        "name": "San Marino"
+      },
+      {
+        "id": 190,
+        "name": "Sao Tome and Principe"
+      },
+      {
+        "id": 191,
+        "name": "Saudi Arabia"
+      },
+      {
+        "id": 192,
+        "name": "Senegal"
+      },
+      {
+        "id": 193,
+        "name": "Serbia"
+      },
+      {
+        "id": 194,
+        "name": "Seychelles"
+      },
+      {
+        "id": 195,
+        "name": "Sierra Leone"
+      },
+      {
+        "id": 196,
+        "name": "Singapore"
+      },
+      {
+        "id": 197,
+        "name": "Slovakia"
+      },
+      {
+        "id": 198,
+        "name": "Slovenia"
+      },
+      {
+        "id": 199,
+        "name": "Smaller Territories of the UK"
+      },
+      {
+        "id": 200,
+        "name": "Solomon Islands"
+      },
+      {
+        "id": 201,
+        "name": "Somalia"
+      },
+      {
+        "id": 202,
+        "name": "South Africa"
+      },
+      {
+        "id": 203,
+        "name": "South Georgia"
+      },
+      {
+        "id": 204,
+        "name": "South Sudan"
+      },
+      {
+        "id": 205,
+        "name": "Spain"
+      },
+      {
+        "id": 206,
+        "name": "Sri Lanka"
+      },
+      {
+        "id": 207,
+        "name": "Sudan"
+      },
+      {
+        "id": 208,
+        "name": "Suriname"
+      },
+      {
+        "id": 209,
+        "name": "Svalbard And Jan Mayen Islands"
+      },
+      {
+        "id": 210,
+        "name": "Swaziland"
+      },
+      {
+        "id": 211,
+        "name": "Sweden"
+      },
+      {
+        "id": 212,
+        "name": "Switzerland"
+      },
+      {
+        "id": 213,
+        "name": "Syria"
+      },
+      {
+        "id": 214,
+        "name": "Taiwan"
+      },
+      {
+        "id": 215,
+        "name": "Tajikistan"
+      },
+      {
+        "id": 216,
+        "name": "Tanzania"
+      },
+      {
+        "id": 217,
+        "name": "Thailand"
+      },
+      {
+        "id": 218,
+        "name": "Togo"
+      },
+      {
+        "id": 219,
+        "name": "Tokelau"
+      },
+      {
+        "id": 220,
+        "name": "Tonga"
+      },
+      {
+        "id": 221,
+        "name": "Trinidad And Tobago"
+      },
+      {
+        "id": 222,
+        "name": "Tunisia"
+      },
+      {
+        "id": 223,
+        "name": "Turkey"
+      },
+      {
+        "id": 224,
+        "name": "Turkmenistan"
+      },
+      {
+        "id": 225,
+        "name": "Turks And Caicos Islands"
+      },
+      {
+        "id": 226,
+        "name": "Tuvalu"
+      },
+      {
+        "id": 227,
+        "name": "Uganda"
+      },
+      {
+        "id": 228,
+        "name": "Ukraine"
+      },
+      {
+        "id": 229,
+        "name": "United Arab Emirates"
+      },
+      {
+        "id": 230,
+        "name": "United Kingdom"
+      },
+      {
+        "id": 231,
+        "name": "United States"
+      },
+      {
+        "id": 232,
+        "name": "United States Minor Outlying Islands"
+      },
+      {
+        "id": 233,
+        "name": "Uruguay"
+      },
+      {
+        "id": 234,
+        "name": "Uzbekistan"
+      },
+      {
+        "id": 235,
+        "name": "Vanuatu"
+      },
+      {
+        "id": 236,
+        "name": "Vatican City State (Holy See)"
+      },
+      {
+        "id": 237,
+        "name": "Venezuela"
+      },
+      {
+        "id": 238,
+        "name": "Vietnam"
+      },
+      {
+        "id": 239,
+        "name": "Virgin Islands (British)"
+      },
+      {
+        "id": 240,
+        "name": "Virgin Islands (US)"
+      },
+      {
+        "id": 241,
+        "name": "Wallis And Futuna Islands"
+      },
+      {
+        "id": 242,
+        "name": "Western Sahara"
+      },
+      {
+        "id": 243,
+        "name": "Yemen"
+      },
+      {
+        "id": 244,
+        "name": "Yugoslavia"
+      },
+      {
+        "id": 245,
+        "name": "Zambia"
+      },
+      {
+        "id": 246,
+        "name": "Zimbabwe"
+      }
+    ]
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/chat-list
+
+{
+  "data": [
+    {
+      "id": 12,
+      "active": 1,
+      "blocked_by_user": null,
+      "unseen_message_count": 0,
+      "member_photo": "/public/uploads/all/U474j0WOBKGzld9Ugc8agmO1rr3N530bWQQKLCNS.jpg",
+      "member_name": "Jaber Ahmed",
+      "last_message_time": "1 month ago",
+      "last_message": null,
+      "member_package": {
+        "package_id": 11,
+        "name": "Diamond",
+        "image": "/public/uploads/all/lfhFfROa6D80ppbRoewuAvzFGgXezfQacqPkUY0x.png",
+        "express_interest": 150,
+        "photo_gallery": 150,
+        "contact": 150,
+        "profile_image_view": 0,
+        "gallery_image_view": 0,
+        "auto_profile_match": 1,
+        "price": 96,
+        "validity": 180
+      }
+    },
+    {
+      "id": 13,
+      "active": 1,
+      "blocked_by_user": null,
+      "unseen_message_count": 2,
+      "member_photo": "/public/uploads/all/xosGyoeSksu96T5FJMnde5Iufshp9wFBRPT4xBHc.jpg",
+      "member_name": "md tanvir",
+      "last_message_time": "1 month ago",
+      "last_message": "hlww",
+      "member_package": {
+        "package_id": 13,
+        "name": "Platinum Plus",
+        "image": "/public/uploads/all/MUXVUsD8logxXRk1jq3wDkbB4YZFJ5LaZmolWtHN.png",
+        "express_interest": 600,
+        "photo_gallery": 600,
+        "contact": 600,
+        "profile_image_view": 0,
+        "gallery_image_view": 0,
+        "auto_profile_match": 1,
+        "price": 125,
+        "validity": 360
+      }
+    },
+    {
+      "id": 14,
+      "active": 1,
+      "blocked_by_user": null,
+      "unseen_message_count": 0,
+      "member_photo": "/public/uploads/all/Wt2UJkpRuTN8X6DEK51KFC7NTfzFWnK2u99XVaTa.png",
+      "member_name": "sunny gpc",
+      "last_message_time": "",
+      "last_message": "",
+      "member_package": {
+        "package_id": 13,
+        "name": "Platinum Plus",
+        "image": "/public/uploads/all/MUXVUsD8logxXRk1jq3wDkbB4YZFJ5LaZmolWtHN.png",
+        "express_interest": 600,
+        "photo_gallery": 600,
+        "contact": 600,
+        "profile_image_view": 0,
+        "gallery_image_view": 0,
+        "auto_profile_match": 1,
+        "price": 125,
+        "validity": 360
+      }
+    }
+  ],
+  "result": true,
+  "matched_profile": {
+    "matched_profiles": []
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/chat-view/12
+{
+  "data": {
+    "receiver_name": "Lamia Khan",
+    "receiver_photo": "/public/uploads/all/V1B8b09X8vDAGdIis5GYp8pdE9GHEFw3wwRSw0cl.jpg",
+    "sender_name": "Jaber Ahmed",
+    "auth_user_photo": "/public/uploads/all/V1B8b09X8vDAGdIis5GYp8pdE9GHEFw3wwRSw0cl.jpg",
+    "messages": [
+      {
+        "id": 16,
+        "chat_thread_id": 12,
+        "sender_user_id": 6,
+        "message": null,
+        "attachment": "[\"34\"]",
+        "seen": 1,
+        "created_at": "2024-06-03T17:44:55.000000Z",
+        "updated_at": "2024-06-03T20:50:44.000000Z",
+        "deleted_at": null
+      },
+      {
+        "id": 13,
+        "chat_thread_id": 12,
+        "sender_user_id": 7,
+        "message": "hey",
+        "attachment": null,
+        "seen": 1,
+        "created_at": "2024-05-29T12:21:06.000000Z",
+        "updated_at": "2024-06-03T12:19:04.000000Z",
+        "deleted_at": null
+      },
+      {
+        "id": 10,
+        "chat_thread_id": 12,
+        "sender_user_id": 7,
+        "message": "hi",
+        "attachment": null,
+        "seen": 1,
+        "created_at": "2024-05-28T12:06:01.000000Z",
+        "updated_at": "2024-06-03T12:19:04.000000Z",
+        "deleted_at": null
+      },
+      {
+        "id": 5,
+        "chat_thread_id": 12,
+        "sender_user_id": 6,
+        "message": "ki koro?",
+        "attachment": null,
+        "seen": 1,
+        "created_at": "2024-05-07T12:00:37.000000Z",
+        "updated_at": "2024-05-07T21:06:59.000000Z",
+        "deleted_at": null
+      },
+      {
+        "id": 4,
+        "chat_thread_id": 12,
+        "sender_user_id": 6,
+        "message": "Aito valo ..tmi?",
+        "attachment": null,
+        "seen": 1,
+        "created_at": "2024-04-22T06:40:11.000000Z",
+        "updated_at": "2024-04-22T06:40:11.000000Z",
+        "deleted_at": null
+      },
+      {
+        "id": 3,
+        "chat_thread_id": 12,
+        "sender_user_id": 7,
+        "message": "Kmn acho??",
+        "attachment": null,
+        "seen": 1,
+        "created_at": "2024-04-22T06:40:03.000000Z",
+        "updated_at": "2024-04-22T06:40:05.000000Z",
+        "deleted_at": null
+      },
+      {
+        "id": 2,
+        "chat_thread_id": 12,
+        "sender_user_id": 6,
+        "message": "Hi",
+        "attachment": null,
+        "seen": 1,
+        "created_at": "2024-04-22T06:39:53.000000Z",
+        "updated_at": "2024-04-22T06:39:56.000000Z",
+        "deleted_at": null
+      },
+      {
+        "id": 1,
+        "chat_thread_id": 12,
+        "sender_user_id": 7,
+        "message": "Hello",
+        "attachment": null,
+        "seen": 1,
+        "created_at": "2024-04-22T06:39:33.000000Z",
+        "updated_at": "2024-04-22T06:39:47.000000Z",
+        "deleted_at": null
+      }
+    ]
+  },
+  "result": true
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/chat/old-messages
+
+request:
+{
+    "first_message_id": 1
+}
+
+response:
+{
+  "result": false,
+  "messages": "",
+  "first_message_id": 0
+}
+
+
+
+https://meetnmarry.com/api/member/package-details
+
+{
+  "data": {
+    "package_id": 10,
+    "name": "Gold Plus",
+    "image": "/public/uploads/all/6H4OQJDt5cb8cLqO94MVYgsaJrrauLHAggxsJyfn.png",
+    "express_interest": 150,
+    "photo_gallery": 150,
+    "contact": 150,
+    "profile_image_view": 0,
+    "gallery_image_view": 0,
+    "auto_profile_match": 1,
+    "price": 84,
+    "validity": 90
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/member-listing (POST)
+
+
+request: Null
+
+response:
+
+{
+  "result": true,
+  "data": {
+    "members": [
+      {
+        "user_id": 94,
+        "code": "20240794",
+        "membership": 1,
+        "first_name": "Jaber",
+        "last_name": "Ahmed",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 0,
+        "country": "Afghanistan",
+        "height": 6,
+        "religion": "",
+        "mothere_tongue": "",
+        "marital_status": "",
+        "caste": "",
+        "package_update_alert": false,
+        "interest_status": 1,
+        "interest_text": "Interest",
+        "shortlist_status": 1,
+        "shortlist_text": "Shortlist",
+        "report_status": false
+      },
+      {
+        "user_id": 93,
+        "code": "20240793",
+        "membership": 1,
+        "first_name": "Md",
+        "last_name": "Ch",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 29,
+        "country": "",
+        "height": "",
+        "religion": "",
+        "mothere_tongue": "",
+        "marital_status": "",
+        "caste": "",
+        "package_update_alert": false,
+        "interest_status": 1,
+        "interest_text": "Interest",
+        "shortlist_status": 1,
+        "shortlist_text": "Shortlist",
+        "report_status": false
+      },
+      {
+        "user_id": 91,
+        "code": "20240691",
+        "membership": 1,
+        "first_name": "akas",
+        "last_name": "adsasd",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 28,
+        "country": "",
+        "height": "",
+        "religion": "",
+        "mothere_tongue": "",
+        "marital_status": "",
+        "caste": "",
+        "package_update_alert": false,
+        "interest_status": 1,
+        "interest_text": "Interest",
+        "shortlist_status": 1,
+        "shortlist_text": "Shortlist",
+        "report_status": false
+      },
+      {
+        "user_id": 87,
+        "code": "20240687",
+        "membership": 1,
+        "first_name": "mr",
+        "last_name": "clerk",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 58,
+        "country": "",
+        "height": "",
+        "religion": "",
+        "mothere_tongue": "",
+        "marital_status": "",
+        "caste": "",
+        "package_update_alert": false,
+        "interest_status": 1,
+        "interest_text": "Interest",
+        "shortlist_status": 1,
+        "shortlist_text": "Shortlist",
+        "report_status": false
+      },
+      {
+        "user_id": 86,
+        "code": "20240686",
+        "membership": 1,
+        "first_name": "mr",
+        "last_name": "clerk",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 58,
+        "country": "",
+        "height": "",
+        "religion": "",
+        "mothere_tongue": "",
+        "marital_status": "",
+        "caste": "",
+        "package_update_alert": false,
+        "interest_status": 1,
+        "interest_text": "Interest",
+        "shortlist_status": 1,
+        "shortlist_text": "Shortlist",
+        "report_status": false
+      },
+      {
+        "user_id": 34,
+        "code": "20240634",
+        "membership": 1,
+        "first_name": "mine",
+        "last_name": "ytyhh",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 48,
+        "country": "",
+        "height": "",
+        "religion": "",
+        "mothere_tongue": "",
+        "marital_status": "",
+        "caste": "",
+        "package_update_alert": false,
+        "interest_status": 1,
+        "interest_text": "Interest",
+        "shortlist_status": 1,
+        "shortlist_text": "Shortlist",
+        "report_status": false
+      },
+      {
+        "user_id": 32,
+        "code": "20240632",
+        "membership": 1,
+        "first_name": "Abdur",
+        "last_name": "Rouf",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 29,
+        "country": "",
+        "height": "",
+        "religion": "",
+        "mothere_tongue": "",
+        "marital_status": "",
+        "caste": "",
+        "package_update_alert": false,
+        "interest_status": 1,
+        "interest_text": "Interest",
+        "shortlist_status": 1,
+        "shortlist_text": "Shortlist",
+        "report_status": false
+      },
+      {
+        "user_id": 27,
+        "code": "20240627",
+        "membership": 1,
+        "first_name": "Happy",
+        "last_name": "Saija",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 22,
+        "country": "",
+        "height": "",
+        "religion": "",
+        "mothere_tongue": "",
+        "marital_status": "",
+        "caste": "",
+        "package_update_alert": false,
+        "interest_status": 1,
+        "interest_text": "Interest",
+        "shortlist_status": 1,
+        "shortlist_text": "Shortlist",
+        "report_status": false
+      },
+      {
+        "user_id": 26,
+        "code": "20240626",
+        "membership": 1,
+        "first_name": "Happy",
+        "last_name": "Saija",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 22,
+        "country": "",
+        "height": "",
+        "religion": "",
+        "mothere_tongue": "",
+        "marital_status": "",
+        "caste": "",
+        "package_update_alert": false,
+        "interest_status": 1,
+        "interest_text": "Interest",
+        "shortlist_status": 1,
+        "shortlist_text": "Shortlist",
+        "report_status": false
+      },
+      {
+        "user_id": 25,
+        "code": "20240525",
+        "membership": 2,
+        "first_name": "sunny",
+        "last_name": "gpc",
+        "photo": "/public/uploads/all/Wt2UJkpRuTN8X6DEK51KFC7NTfzFWnK2u99XVaTa.png",
+        "age": 57,
+        "country": "Bangladesh",
+        "height": "",
+        "religion": "",
+        "mothere_tongue": "",
+        "marital_status": "Single",
+        "caste": "",
+        "package_update_alert": false,
+        "interest_status": 1,
+        "interest_text": "Interest",
+        "shortlist_status": 1,
+        "shortlist_text": "Shortlist",
+        "report_status": false
+      },
+      {
+        "user_id": 23,
+        "code": "20240523",
+        "membership": 1,
+        "first_name": "Jarir",
+        "last_name": "Ahmed",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 0,
+        "country": "",
+        "height": "",
+        "religion": "",
+        "mothere_tongue": "",
+        "marital_status": "",
+        "caste": "",
+        "package_update_alert": false,
+        "interest_status": 1,
+        "interest_text": "Interest",
+        "shortlist_status": 1,
+        "shortlist_text": "Shortlist",
+        "report_status": false
+      },
+      {
+        "user_id": 16,
+        "code": "20240416",
+        "membership": 1,
+        "first_name": "Jarir",
+        "last_name": "Ahmed",
+        "photo": "/public/uploads/all/vKrqR2gMhQQmZ2OSjmXDBcCLAb1hwLaawIVZIhsf.jpg",
+        "age": 0,
+        "country": "",
+        "height": "",
+        "religion": "",
+        "mothere_tongue": "",
+        "marital_status": "Single",
+        "caste": "",
+        "package_update_alert": false,
+        "interest_status": 1,
+        "interest_text": "Interest",
+        "shortlist_status": 1,
+        "shortlist_text": "Shortlist",
+        "report_status": false
+      },
+      {
+        "user_id": 15,
+        "code": "20240415",
+        "membership": 1,
+        "first_name": "Matrimony",
+        "last_name": "Fallback Email",
+        "photo": "/public/uploads/all/XKNr290rnJgmKOftID8qoyej4PqhUw3ofduubA2V.jpg",
+        "age": 0,
+        "country": "Bangladesh",
+        "height": "",
+        "religion": "",
+        "mothere_tongue": "",
+        "marital_status": "Single",
+        "caste": "",
+        "package_update_alert": false,
+        "interest_status": 1,
+        "interest_text": "Interest",
+        "shortlist_status": 1,
+        "shortlist_text": "Shortlist",
+        "report_status": false
+      },
+      {
+        "user_id": 12,
+        "code": "20240412",
+        "membership": 1,
+        "first_name": "Mr.Demo",
+        "last_name": "Member",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 28,
+        "country": "Bangladesh",
+        "height": "",
+        "religion": "",
+        "mothere_tongue": "",
+        "marital_status": "",
+        "caste": "",
+        "package_update_alert": false,
+        "interest_status": 1,
+        "interest_text": "Interest",
+        "shortlist_status": 1,
+        "shortlist_text": "Shortlist",
+        "report_status": false
+      },
+      {
+        "user_id": 10,
+        "code": "20240410",
+        "membership": 1,
+        "first_name": "Sunil",
+        "last_name": "Tabassum",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 0,
+        "country": "",
+        "height": "",
+        "religion": "",
+        "mothere_tongue": "",
+        "marital_status": "",
+        "caste": "",
+        "package_update_alert": false,
+        "interest_status": 1,
+        "interest_text": "Interest",
+        "shortlist_status": 1,
+        "shortlist_text": "Shortlist",
+        "report_status": false
+      },
+      {
+        "user_id": 6,
+        "code": "2024046",
+        "membership": 2,
+        "first_name": "Jaber",
+        "last_name": "Ahmed",
+        "photo": "/public/uploads/all/U474j0WOBKGzld9Ugc8agmO1rr3N530bWQQKLCNS.jpg",
+        "age": 0,
+        "country": "Bangladesh",
+        "height": 6,
+        "religion": "Muslim",
+        "mothere_tongue": "Bangali",
+        "marital_status": "Single",
+        "caste": "Shiya, ",
+        "package_update_alert": false,
+        "interest_status": 1,
+        "interest_text": "Interest",
+        "shortlist_status": 1,
+        "shortlist_text": "Shortlist",
+        "report_status": false
+      },
+      {
+        "user_id": 5,
+        "code": "2024045",
+        "membership": 1,
+        "first_name": "Samia",
+        "last_name": "Mim",
+        "photo": "https://meetnmarry.com/assets/img/avatar-place.png",
+        "age": 0,
+        "country": "",
+        "height": "",
+        "religion": "",
+        "mothere_tongue": "",
+        "marital_status": "",
+        "caste": "",
+        "package_update_alert": false,
+        "interest_status": 1,
+        "interest_text": "Interest",
+        "shortlist_status": 1,
+        "shortlist_text": "Shortlist",
+        "report_status": false
+      },
+      {
+        "user_id": 4,
+        "code": "2024043",
+        "membership": 1,
+        "first_name": "Jarir",
+        "last_name": "Ahmed",
+        "photo": "/public/uploads/all/PafUYb6CMmet8XkMKyghKQ7ERAN8FxVbAJskeyF3.jpg",
+        "age": 28,
+        "country": "",
+        "height": "",
+        "religion": "",
+        "mothere_tongue": "",
+        "marital_status": "Single",
+        "caste": "",
+        "package_update_alert": false,
+        "interest_status": 1,
+        "interest_text": "Interest",
+        "shortlist_status": 1,
+        "shortlist_text": "Shortlist",
+        "report_status": false
+      }
+    ],
+    "age_from": null,
+    "age_to": null,
+    "member_code": null,
+    "marital_status": null,
+    "religion_id": null,
+    "caste_id": null,
+    "sub_caste_id": null,
+    "mother_tongue": null,
+    "profession": null,
+    "country_id": null,
+    "state_id": null,
+    "city_id": null,
+    "min_height": null,
+    "max_height": null,
+    "member_type": 0
+  }
+}
+
+
+
+
+
+
+https://meetnmarry.com/api/member/ignored-user-list
+
+response:
+{
+  "data": [],
+  "links": {
+    "first": "https://meetnmarry.com/api/member/ignored-user-list?page=1",
+    "last": "https://meetnmarry.com/api/member/ignored-user-list?page=1",
+    "prev": null,
+    "next": null
+  },
+  "meta": {
+    "current_page": 1,
+    "from": null,
+    "last_page": 1,
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "https://meetnmarry.com/api/member/ignored-user-list?page=1",
+        "label": "1",
+        "active": true
+      },
+      {
+        "url": null,
+        "label": "Next &raquo;",
+        "active": false
+      }
+    ],
+    "path": "https://meetnmarry.com/api/member/ignored-user-list",
+    "per_page": 10,
+    "to": null,
+    "total": 0
+  },
+  "result": true
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/add-to-ignore-list
+
+request:
+{
+    "user_id": 10
+}
+
+response:
+{
+  "result": true,
+  "message": "You Have Ignored This Member."
+}
+
+
+https://meetnmarry.com/api/member/remove-from-ignored-list
+
+request:
+{
+    "user_id": 10
+}
+
+response:
+{
+  "result": true,
+  "message": "You have removed this member from your ignored list"
+}
+
+
+https://meetnmarry.com/api/member/report-member
+
+request:
+{
+    "user_id": 10,
+    "reason": "Inappropriate behavior"
+}
+
+
+response:
+{
+  "result": true,
+  "message": "Reported to this member successfully."
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/package-purchase-history-invoice
+
+request:
+{
+    "package_payment_id": 1
+}
+
+
+response:
+{
+  "data": {
+    "purchase_code": "240422-171341",
+    "purchase_date": "22-04-2024 11:13:41",
+    "name": "Jaber Ahmed",
+    "email": "jaber1112@gmail.com",
+    "phone": "01234567890",
+    "payment_method": "Method 2",
+    "payment_status": "Paid",
+    "package_name": "Silver",
+    "amount": "5,000.00$",
+    "total": "5,000.00$"
+  },
+  "result": true
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/my-interests
+
+response:
+{
+  "data": [],
+  "links": {
+    "first": "https://meetnmarry.com/api/member/my-interests?page=1",
+    "last": "https://meetnmarry.com/api/member/my-interests?page=1",
+    "prev": null,
+    "next": null
+  },
+  "meta": {
+    "current_page": 1,
+    "from": null,
+    "last_page": 1,
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "https://meetnmarry.com/api/member/my-interests?page=1",
+        "label": "1",
+        "active": true
+      },
+      {
+        "url": null,
+        "label": "Next &raquo;",
+        "active": false
+      }
+    ],
+    "path": "https://meetnmarry.com/api/member/my-interests",
+    "per_page": 10,
+    "to": null,
+    "total": 0
+  },
+  "result": true
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/express-interest
+
+request:
+{
+    "user_id": 7
+}
+
+response:
+{
+  "result": true,
+  "message": "Interest Expressed Successfully"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/interest-requests
+
+{
+  "data": [
+    {
+      "id": 5,
+      "user_id": 7,
+      "package_update_alert": false,
+      "photo": "/public/uploads/all/V1B8b09X8vDAGdIis5GYp8pdE9GHEFw3wwRSw0cl.jpg",
+      "name": "Lamia Khan",
+      "age": 24,
+      "status": "Pending",
+      "religion": "Muslim",
+      "country": "Bangladesh",
+      "mothere_tongue": "Bangali"
+    },
+    {
+      "id": 3,
+      "user_id": 25,
+      "package_update_alert": false,
+      "photo": "/public/uploads/all/Wt2UJkpRuTN8X6DEK51KFC7NTfzFWnK2u99XVaTa.png",
+      "name": "sunny gpc",
+      "age": 57,
+      "status": "Approved",
+      "religion": "",
+      "country": "Bangladesh",
+      "mothere_tongue": ""
+    },
+    {
+      "id": 2,
+      "user_id": 24,
+      "package_update_alert": false,
+      "photo": "/public/uploads/all/xosGyoeSksu96T5FJMnde5Iufshp9wFBRPT4xBHc.jpg",
+      "name": "md tanvir",
+      "age": 22,
+      "status": "Approved",
+      "religion": "",
+      "country": "",
+      "mothere_tongue": ""
+    },
+    {
+      "id": 1,
+      "user_id": 6,
+      "package_update_alert": false,
+      "photo": "/public/uploads/all/U474j0WOBKGzld9Ugc8agmO1rr3N530bWQQKLCNS.jpg",
+      "name": "Jaber Ahmed",
+      "age": 0,
+      "status": "Approved",
+      "religion": "Muslim",
+      "country": "Bangladesh",
+      "mothere_tongue": "Bangali"
+    }
+  ],
+  "links": {
+    "first": "https://meetnmarry.com/api/member/interest-requests?page=1",
+    "last": "https://meetnmarry.com/api/member/interest-requests?page=1",
+    "prev": null,
+    "next": null
+  },
+  "meta": {
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "https://meetnmarry.com/api/member/interest-requests?page=1",
+        "label": "1",
+        "active": true
+      },
+      {
+        "url": null,
+        "label": "Next &raquo;",
+        "active": false
+      }
+    ],
+    "path": "https://meetnmarry.com/api/member/interest-requests",
+    "per_page": 10,
+    "to": 4,
+    "total": 4
+  },
+  "result": true
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://meetnmarry.com/api/member/interest-accept
+
+request:
+{
+    "interest_id": 1
+}
+
+
+response:
+{
+  "result": true,
+  "message": "Interest has been accepted successfully."
+}
+
+
+https://meetnmarry.com/api/member/interest-reject
+request:
+{
+    "interest_id": 1
+}
+response:
+{
+  "result": true,
+  "message": "Interest has been rejected successfully."
+}
+
+
+
+

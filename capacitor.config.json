@@ -1,0 +1,13 @@
+{
+  "appId": "com.jab3r.meetnmarry",
+  "appName": "Meet N Marry",
+  "webDir": "dist",
+  "plugins": {
+    "CapacitorHttp": {
+      "enabled": true
+    }
+  },
+  "android": {
+    "allowMixedContent": true
+  }
+}
